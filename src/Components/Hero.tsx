@@ -1,9 +1,24 @@
-import React from "react";
-import { Box, Typography, Container } from "@mui/material";
-import { motion, useAnimation, useInView } from "framer-motion";
+import { Typography, Container } from "@mui/material";
+import {
+  motion,
+  MotionValue,
+  useAnimation,
+  useInView,
+  useTransform,
+} from "framer-motion";
 import { useRef, useEffect } from "react";
+import { Box } from "./Shared";
 
-const Hero: React.FC = () => {
+interface HeroProps {
+  scrollYProgress: MotionValue<number>;
+}
+
+const Hero = (props: HeroProps) => {
+  const { scrollYProgress } = props;
+
+  const scale = useTransform(scrollYProgress, [0, 1], [1, 0.8]);
+  const rotate = useTransform(scrollYProgress, [0, 1], [0, -5]);
+
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
   const controls = useAnimation();
@@ -17,8 +32,9 @@ const Hero: React.FC = () => {
   return (
     <Box
       sx={{
-        height: "100vh", // Full viewport height
-        position: "relative",
+        height: "100vh",
+        position: "sticky",
+        top: 0,
       }}
     >
       <Container
@@ -38,6 +54,7 @@ const Hero: React.FC = () => {
           variants={{
             visible: { opacity: 1, x: 0, transition: { duration: 1 } },
           }}
+          style={{ scale, rotate }}
         >
           <Typography
             variant="h3"

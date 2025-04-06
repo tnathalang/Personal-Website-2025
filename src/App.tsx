@@ -1,15 +1,14 @@
 import "./App.css";
 import Header from "./Components/Header";
-import Hero from "./Components/Hero";
-import GalleryContent from "./Components/GalleryContent";
+
 import Footer from "./Components/Footer";
+import MainLayout from "./Components/MainLayout";
 
 function App() {
   return (
     <>
       <Header />
-      <Hero />
-      <GalleryContent />
+      <MainLayout />
       <Footer />
     </>
   );

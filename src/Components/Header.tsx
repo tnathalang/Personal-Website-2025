@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 const Header: React.FC = () => {
   return (
-    <AppBar position="static" color="transparent" elevation={0}>
+    <AppBar position="sticky" color="transparent" elevation={0}>
       <Toolbar>
         <Typography
           variant="h6"

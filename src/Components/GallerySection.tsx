@@ -26,7 +26,7 @@ const useStyles = () => ({
     width: 300,
     height: 300,
     borderRadius: 1,
-    bgcolor: "white",
+    bgcolor: "black",
   },
 });
 
