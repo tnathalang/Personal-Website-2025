@@ -41,13 +41,7 @@ const Hero = (_props: HeroProps) => {
             visible: { opacity: 1, x: 0, transition: { duration: 1 } },
           }}
         >
-          <Typography
-            variant="h2"
-            sx={{
-              color: "black",
-              padding: "1rem",
-            }}
-          >
+          <Typography variant="h3">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde
             dolorem ut quae pariatur. Necessitatibus id, sequi ullam velit ut
             blanditiis molestias accusantium ab, dolor dolores quibusdam dicta
