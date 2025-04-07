@@ -1,6 +1,6 @@
 import Hero from "./Hero";
 import GalleryContent from "./GalleryContent";
-import { useScroll } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 
 const MainLayout = () => {
@@ -11,11 +11,24 @@ const MainLayout = () => {
     offset: ["start start", "end end"],
   });
 
+  const backgroundColor = useTransform(
+    scrollYProgress,
+    [0, 0.5, 1],
+    ["#FFFFFF", "#F5F0E6", "#D2B48C"]
+  );
+
   return (
-    <main ref={container} className="relaticve h-[200vh]">
-      <Hero scrollYProgress={scrollYProgress} />
-      <GalleryContent scrollYProgress={scrollYProgress} />
-    </main>
+    <motion.main
+      ref={container}
+      style={{
+        backgroundColor,
+        width: "100%",
+        margin: 0,
+      }}
+    >
+      <Hero />
+      <GalleryContent />
+    </motion.main>
   );
 };
 

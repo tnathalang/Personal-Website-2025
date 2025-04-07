@@ -1,15 +1,15 @@
 import "./App.css";
 import Header from "./Components/Header";
+import HeroBanner from "./Components/HeroBanner";
 
-import Footer from "./Components/Footer";
 import MainLayout from "./Components/MainLayout";
 
 function App() {
   return (
     <>
       <Header />
+      <HeroBanner />
       <MainLayout />
-      <Footer />
     </>
   );
 }

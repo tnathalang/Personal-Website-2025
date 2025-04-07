@@ -1,24 +1,11 @@
 import { Typography, Container } from "@mui/material";
-import {
-  motion,
-  MotionValue,
-  useAnimation,
-  useInView,
-  useTransform,
-} from "framer-motion";
+import { motion, useAnimation, useInView } from "framer-motion";
 import { useRef, useEffect } from "react";
 import { Box } from "./Shared";
 
-interface HeroProps {
-  scrollYProgress: MotionValue<number>;
-}
+interface HeroProps {}
 
-const Hero = (props: HeroProps) => {
-  const { scrollYProgress } = props;
-
-  const scale = useTransform(scrollYProgress, [0, 1], [1, 0.8]);
-  const rotate = useTransform(scrollYProgress, [0, 1], [0, -5]);
-
+const Hero = (_props: HeroProps) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
   const controls = useAnimation();
@@ -33,8 +20,7 @@ const Hero = (props: HeroProps) => {
     <Box
       sx={{
         height: "100vh",
-        position: "sticky",
-        top: 0,
+        position: "relative",
       }}
     >
       <Container
@@ -54,12 +40,11 @@ const Hero = (props: HeroProps) => {
           variants={{
             visible: { opacity: 1, x: 0, transition: { duration: 1 } },
           }}
-          style={{ scale, rotate }}
         >
           <Typography
-            variant="h3"
+            variant="h2"
             sx={{
-              color: "white",
+              color: "black",
               padding: "1rem",
             }}
           >
