@@ -7,6 +7,7 @@ import theme from "./theme";
 import Preloader from "./Components/Preloader";
 import { AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";
+import { Box } from "./Components/Shared";
 
 function App() {
   const [showPreloader, setShowPreloader] = useState(true);
@@ -23,12 +24,12 @@ function App() {
         {showPreloader && <Preloader />}
       </AnimatePresence>
 
+      <Header />
       {showInnerPage && (
-        <>
-          <Header />
+        <Box display="flex" flexDirection="column">
           <HeroBanner />
-          <MainLayout />
-        </>
+          {/* <MainLayout /> */}
+        </Box>
       )}
     </ThemeProvider>
   );

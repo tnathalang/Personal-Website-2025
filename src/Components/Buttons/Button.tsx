@@ -1,6 +1,6 @@
 import { Box, styled } from "@mui/material";
 import { motion, useAnimate } from "framer-motion";
-import { ReactNode, useEffect, useRef } from "react";
+import { ReactNode } from "react";
 
 interface ButtonProps {
   children: ReactNode;
@@ -9,7 +9,6 @@ interface ButtonProps {
 const buttonStyle = {
   borderRadius: "3em",
   border: "1px solid",
-  cursor: "pointer",
   position: "relative",
   display: "flex",
   alignItems: "center",

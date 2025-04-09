@@ -1,8 +1,7 @@
 import Portrait from "../assets/Portrait.png";
 import { styled, Typography } from "@mui/material";
 import { Box } from "./Shared";
-import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
+import { motion } from "framer-motion";
 import Button from "./Buttons/Button";
 import { ChevronDownIcon } from "@heroicons/react/24/outline";
 
@@ -63,16 +62,16 @@ const HeroBanner = () => {
       width="100%"
       display="flex"
       flexDirection="column"
-      justifyContent="center"
+      justifyContent="flex-start"
       height="100vh"
+      overflow="hidden"
     >
       <Box
-        paddingLeft={10}
+        paddingLeft={8}
         zIndex={2}
         component={motion.div}
         initial="hidden"
         animate="show"
-        style={{ display: "flex", flexWrap: "wrap" }}
         variants={container}
       >
         {heroText.split(" ").map((alph, index) => (
@@ -90,53 +89,66 @@ const HeroBanner = () => {
 
       <Box
         zIndex={-1}
-        top={-83}
+        top={-75}
         position="relative"
         justifyContent="center"
+        alignItems="center"
         display="flex"
+        width="100%"
+        style={{ maxHeight: "70%", overflow: "hidden" }} // Limit image height to avoid overflow
       >
         <motion.img
           src={Portrait}
           variants={imageVariant}
           initial="hidden"
           animate="show"
-          style={{ width: "50%", height: "auto" }}
+          style={{
+            width: "auto",
+            maxWidth: "80%",
+            height: "auto",
+            maxHeight: "100%",
+          }}
         />
       </Box>
 
       <Box
         display="flex"
-        justifyContent="end"
-        marginX={10}
+        justifyContent="space-between"
+        alignItems="center"
+        flexWrap="wrap-reverse"
         position="relative"
-        top={-50}
+        marginX={2}
       >
-        <Box
-          display="flex"
-          justifyContent="space-between"
-          width="80%"
-          alignItems="center"
-        >
+        <Box display="flex" ml="auto" marginTop={2} marginBottom={2}>
           <Button>
             <DownIcon />
             <Box marginLeft={2}>
               <Typography>Scroll for more</Typography>
             </Box>
           </Button>
-
-          <Typography
-            variant="h4"
-            component={motion.p}
-            initial="hidden"
-            animate="show"
-            variants={heroFooterTextVariants}
-            style={{ overflow: "hidden" }}
-          >
-            Full-stack developer
-            <br />
-            with focus on the front-end in React.js
-          </Typography>
         </Box>
+
+        <Typography
+          variant="body1"
+          component={motion.p}
+          initial="hidden"
+          animate="show"
+          variants={heroFooterTextVariants}
+          style={{
+            overflow: "hidden",
+            marginLeft: "auto",
+            marginRight: "auto",
+            textAlign: "end",
+          }}
+        >
+          Turning ideas into interactive web experiences—one line of React code,
+          <br />
+          one sip of coffee, and one cat cuddle at a time.
+          <br />
+          Crafting front-end magic with passion and precision,
+          <br />
+          building intuitive, user-centered designs.
+        </Typography>
       </Box>
     </Box>
   );
