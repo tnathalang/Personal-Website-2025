@@ -67,12 +67,23 @@ const HeroBanner = () => {
       overflow="hidden"
     >
       <Box
-        paddingLeft={8}
+        display="flex"
+        justifyContent="flex-start"
+        alignItems="center"
+        position="relative"
         zIndex={2}
+        flexWrap="wrap"
         component={motion.div}
         initial="hidden"
         animate="show"
         variants={container}
+        style={{
+          width: "100%",
+          maxWidth: "85%",
+          margin: "0 auto",
+          paddingLeft: "10%",
+          paddingRight: "1rem",
+        }}
       >
         {heroText.split(" ").map((alph, index) => (
           <Typography
@@ -80,7 +91,10 @@ const HeroBanner = () => {
             component={motion.span}
             variants={letter}
             key={index}
-            style={{ marginRight: "0.8rem" }}
+            style={{
+              marginRight: "0.8rem",
+              display: "inline-block",
+            }}
           >
             {alph === " " ? "\u00A0" : alph}
           </Typography>
@@ -95,7 +109,7 @@ const HeroBanner = () => {
         alignItems="center"
         display="flex"
         width="100%"
-        style={{ maxHeight: "70%", overflow: "hidden" }} // Limit image height to avoid overflow
+        style={{ maxHeight: "70%", overflow: "hidden" }}
       >
         <motion.img
           src={Portrait}
