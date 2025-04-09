@@ -10,17 +10,17 @@ const Header: React.FC = () => {
         justifyContent="space-between"
         alignContent={"center"}
         marginX={9}
-        marginY={6}
+        marginY={2}
       >
         <Typography
-          variant="h6"
+          variant="body1"
           component={motion.div}
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5 }}
           style={{ flexGrow: 1 }}
         >
-          Gallery
+          Akira Na Thalang
         </Typography>
 
         <Box
