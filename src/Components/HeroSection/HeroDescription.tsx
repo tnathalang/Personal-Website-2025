@@ -99,7 +99,7 @@ const HeroDescription = (props: HeroDescriptionProps) => {
         >
           {words.map((word, index) => (
             <Typography
-              variant="h5"
+              variant="body1"
               component={motion.span}
               key={index}
               variants={wordVariants}

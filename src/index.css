@@ -14,8 +14,8 @@ body {
 }
 
 @font-face {
-  font-family: "Kinta";
-  src: url("/src/assets/fonts/Kinta.ttf") format("truetype");
-  font-weight: 100;
-  font-style: normal;
+  font-family: "Roslindale Deck Narrow";
+  src: url("/fonts/Roslindale-DeckNarrowItalic.ttf") format("truetype");
+  font-style: italic;
+  font-weight: 400;
 }
