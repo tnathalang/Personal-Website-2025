@@ -1,6 +1,6 @@
 import { Box, styled } from "@mui/material";
 import { motion, useAnimate } from "framer-motion";
-import { ReactNode } from "react";
+import { ReactNode, useEffect, useRef } from "react";
 
 interface ButtonProps {
   children: ReactNode;
@@ -41,36 +41,60 @@ const StyledFillerPill = styled(motion.div)(() => ({
   zIndex: 0,
 }));
 
-const Button = ({ children }: ButtonProps) => {
+const DeprecatedButton = ({ children }: ButtonProps) => {
   const [scope, animate] = useAnimate();
+  const isHovering = useRef(false);
 
-  const manageMouseEnter = () => {
+  const manageMouseEnter = async () => {
+    isHovering.current = true;
+    // Force reset to left origin instantly before enter animation
+    await animate(
+      scope.current,
+      { left: "-163%", width: "120%", height: "50%" },
+      { duration: 0 }
+    );
+    // Then animate in from the left
     animate(
       scope.current,
-      { left: "-20%", width: "160%", height: "200%" },
+      { left: "-20%", width: "160%", height: "150%" },
       { duration: 0.4 }
     );
   };
 
   const manageMouseLeave = () => {
+    isHovering.current = false;
     animate(
       scope.current,
       { left: "100%", width: "125%" },
       { duration: 0.25 }
     ).then(() => {
-      // Resets position to keep uniform look when the animation restarts from left to right
+      // Only reset if we’re STILL not hovering
+      if (!isHovering.current) {
+        animate(
+          scope.current,
+          { left: "-163%", width: "120%", height: "50%" },
+          { duration: 0 }
+        );
+      }
+    });
+  };
+
+  const manageMouseOver = () => {
+    isHovering.current = true;
+    if (isHovering.current) {
       animate(
         scope.current,
-        { left: "-163%", width: "120%", height: "50%" },
-        { duration: 0 }
+        { left: "-2%", width: "135%", height: "250%" },
+        { duration: 0.4 }
       );
-    });
+    }
   };
 
   return (
     <Box
       onMouseEnter={manageMouseEnter}
       onMouseLeave={manageMouseLeave}
+      onMouseOver={manageMouseOver}
       sx={buttonStyle}
     >
       <StyledFillerPill ref={scope} />
@@ -79,4 +103,4 @@ const Button = ({ children }: ButtonProps) => {
   );
 };
 
-export default Button;
+export default DeprecatedButton;

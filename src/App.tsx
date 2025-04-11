@@ -11,7 +11,7 @@ import { Box } from "./Components/Shared";
 
 function App() {
   const [showPreloader, setShowPreloader] = useState(true);
-  const [showInnerPage, setShowInnerPage] = useState(false);
+  const [showInnerPage, setShowInnerPage] = useState(true);
 
   useEffect(() => {
     const timer = setTimeout(() => setShowPreloader(false), 500);
@@ -20,13 +20,13 @@ function App() {
 
   return (
     <ThemeProvider theme={theme}>
-      <AnimatePresence onExitComplete={() => setShowInnerPage(true)}>
+      {/* <AnimatePresence onExitComplete={() => setShowInnerPage(true)}>
         {showPreloader && <Preloader />}
-      </AnimatePresence>
+      </AnimatePresence> */}
 
-      <Header />
       {showInnerPage && (
         <Box display="flex" flexDirection="column">
+          <Header />
           <HeroBanner />
           {/* <MainLayout /> */}
         </Box>
