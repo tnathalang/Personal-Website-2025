@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { Box } from "../Shared";
 import Portrait from "../../assets/Portrait.png";
 
-interface HeroImageProps {}
+import styles from "./styles.module.scss";
 
 const imageVariant = {
   hidden: { clipPath: "inset(0% 0% 100% 0%)", opacity: 0 },
@@ -14,35 +14,15 @@ const imageVariant = {
   },
 };
 
-const HeroImage = (props: HeroImageProps) => {
+const HeroImage = () => {
   return (
-    <Box
-      zIndex={-1}
-      position="relative"
-      display="flex"
-      justifyContent="center"
-      alignItems="center"
-      width="100%"
-    >
+    <Box className={styles.imageWrapper}>
       <motion.img
         src={Portrait}
         variants={imageVariant}
         initial="hidden"
         animate="show"
-        style={{
-          width: "600px", // Fixed width
-          height: "auto", // Maintain aspect ratio
-          objectFit: "contain", // Ensure image is fully visible
-          marginTop: "-158px", // Adjust for vertical positioning
-        }}
-        // style={{
-        //   width: "auto",
-        //   maxWidth: "60%",
-        //   minWidth: "300px",
-        //   height: "auto",
-        //   objectFit: "contain",
-        //   marginTop: "-75px",
-        // }}
+        className={styles.heroImg}
       />
     </Box>
   );

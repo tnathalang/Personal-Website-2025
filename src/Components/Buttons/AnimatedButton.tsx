@@ -2,7 +2,6 @@ import { ReactNode, useEffect, useRef } from "react";
 import { Box } from "../Shared";
 import { styled } from "@mui/material";
 import gsap from "gsap";
-import MagneticWrapper from "../MagneticWrapper/MagneticWrapper";
 
 interface AnimatedButtonProps {
   children?: ReactNode;

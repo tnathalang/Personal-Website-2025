@@ -4,8 +4,6 @@ import HeroButton from "./HeroButton";
 import { Box } from "../Shared";
 import { useRef } from "react";
 
-interface HeroDescriptionProps {}
-
 const phrase =
   "Turning ideas into interactive web experiences—one line of React code, one sip of coffee, and one cat cuddle at a time. Crafting front-end magic with passion and precision building intuitive, user-centered designs";
 const words = phrase.split(" ");
@@ -43,30 +41,31 @@ const buttonVariants = {
     opacity: 1,
     y: 0, // Move to the normal position
     transition: {
-      duration: 0.6,
-      ease: "easeOut",
+      duration: 1,
+      ease: "easeIn",
     },
   },
 };
 
-const HeroDescription = (props: HeroDescriptionProps) => {
+const HeroDescription = () => {
   const container = useRef(null);
   const isInView = useInView(container);
 
   return (
     <Box
-      ref={container}
       display="grid"
-      gridTemplateColumns={{ xs: "1fr", sm: "1fr 1fr" }} // 1 column on mobile, 2 equal columns on desktop, fr is fraction
       gap={2}
+      gridTemplateColumns={{ xs: "1fr", sm: "1fr 1fr" }} // 1 column on mobile, 2 equal columns on desktop, fr is fraction
       paddingX={{ xs: 2, sm: 4, md: 6 }} // extra small 2, small 4, medium 6
       paddingY={{ xs: 4, sm: 6 }}
+      ref={container}
     >
       <Box
         display="flex"
         justifyContent="center"
         alignItems="center"
         gridColumn={{ xs: "1", sm: "1" }}
+        gridRow={{ xs: "2", sm: "1" }} // button goes below text on mobile
         viewport={{ once: true }}
       >
         <motion.div
@@ -85,6 +84,7 @@ const HeroDescription = (props: HeroDescriptionProps) => {
         marginRight={5}
         marginLeft={5}
         gridColumn={{ xs: "1", sm: "2" }}
+        gridRow={{ xs: "1", sm: "1" }} // text first on all views
       >
         <motion.div
           variants={containerVariants}

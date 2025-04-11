@@ -3,11 +3,20 @@ import { Typography } from "@mui/material";
 
 import { Box } from "../Shared";
 
-import Portrait from "../../assets/Portrait.png";
+import styles from "./styles.module.scss";
 
 interface HeroTextProps {
   text: string;
 }
+
+const heroTextContainer = {
+  hidden: {},
+  show: {
+    transition: {
+      staggerChildren: 0.2,
+    },
+  },
+};
 
 const letter = {
   hidden: {
@@ -26,12 +35,17 @@ const letter = {
 const HeroText = ({ text }: HeroTextProps) => {
   return (
     <Box
-      zIndex={3}
-      width="100%"
+      className={styles.heroText}
+      animate="show"
+      component={motion.div}
       display="flex"
       flexWrap="wrap"
+      initial="hidden"
       marginLeft={8}
       marginRight={8}
+      variants={heroTextContainer}
+      width="100%"
+      zIndex={3}
     >
       {text.split(" ").map((alph, index) => (
         <Typography

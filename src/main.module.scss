@@ -1,0 +1,12 @@
+.appContainer {
+  display: flex;
+  flex-direction: column;
+  cursor: none;
+}
+
+.cursor {
+  width: 20px;
+  height: 20px;
+  background-color: #a8d08d;
+  border-radius: 50%;
+}
