@@ -34,6 +34,21 @@ const wordVariants = {
   },
 };
 
+const buttonVariants = {
+  initial: {
+    opacity: 0,
+    y: 20, // Start 20px below the normal position
+  },
+  open: {
+    opacity: 1,
+    y: 0, // Move to the normal position
+    transition: {
+      duration: 0.6,
+      ease: "easeOut",
+    },
+  },
+};
+
 const HeroDescription = (props: HeroDescriptionProps) => {
   const container = useRef(null);
   const isInView = useInView(container);
@@ -52,8 +67,15 @@ const HeroDescription = (props: HeroDescriptionProps) => {
         justifyContent="center"
         alignItems="center"
         gridColumn={{ xs: "1", sm: "1" }}
+        viewport={{ once: true }}
       >
-        <HeroButton />
+        <motion.div
+          variants={buttonVariants}
+          initial="initial"
+          animate={isInView ? "open" : "initial"}
+        >
+          <HeroButton />
+        </motion.div>
       </Box>
 
       <Box
