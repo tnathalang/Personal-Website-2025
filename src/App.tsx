@@ -60,13 +60,14 @@ function App() {
           />
 
           <Header />
-          <GradientBackground>
-            <HeroWrapper
-              onMouseLeave={handleMouseLeave}
-              onMouseEnter={handleMouseEnter}
-            />
-            <Description />
-          </GradientBackground>
+          <HeroWrapper
+            onMouseLeave={handleMouseLeave}
+            onMouseEnter={handleMouseEnter}
+          />
+          <Description
+            onMouseLeave={handleMouseLeave}
+            onMouseEnter={handleMouseEnter}
+          />
         </div>
       )}
     </ThemeProvider>

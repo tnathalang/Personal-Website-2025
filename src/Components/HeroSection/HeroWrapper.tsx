@@ -5,11 +5,9 @@ import HeroImage from "./HeroImage";
 import HeroDescription from "./HeroDescription";
 
 import styles from "./styles.module.scss";
+import { MouseActions } from "./types";
 
-interface HeroWrapperProps {
-  onMouseEnter: () => void;
-  onMouseLeave: () => void;
-}
+interface HeroWrapperProps extends MouseActions {}
 
 const HeroWrapper = (props: HeroWrapperProps) => {
   return (
