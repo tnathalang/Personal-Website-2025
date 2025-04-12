@@ -14,7 +14,7 @@ const cursorVariants = {
     scale: 1,
   },
   hover: {
-    backgroundColor: "transparent",
+    scale: 0,
   },
 };
 

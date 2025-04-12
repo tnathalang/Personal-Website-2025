@@ -1,0 +1,19 @@
+.button {
+  border-radius: 3em;
+  border: 1px solid black;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2px 20px;
+  overflow: hidden;
+  width: fit-content;
+  background-color: white;
+}
+
+.button svg,
+.button p {
+  position: relative;
+  z-index: 1;
+  color: black;
+}

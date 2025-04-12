@@ -21,7 +21,7 @@ const imageVariant = {
 
 const HeroImage = ({ ref, scrollSpeed }: HeroImageProps) => {
   return (
-    <motion.div className={styles.imageWrapper} ref={ref}>
+    <div className={styles.imageWrapper} ref={ref}>
       <motion.img
         src={Portrait}
         alt="Portrait"
@@ -30,7 +30,7 @@ const HeroImage = ({ ref, scrollSpeed }: HeroImageProps) => {
         // animate="show"
         className={styles.heroImg}
       />
-    </motion.div>
+    </div>
   );
 };
 

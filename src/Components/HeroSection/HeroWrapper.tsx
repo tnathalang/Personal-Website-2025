@@ -28,13 +28,13 @@ const HeroWrapper = (props: HeroWrapperProps) => {
   // const large = useTransform(scrollYProgress, [0, 1], [0, -150]);
 
   return (
-    <Box ref={wrapperRef}>
+    <div ref={wrapperRef}>
       <Box className={styles.heroContainer}>
         <HeroText text={"Hello - I'm Akira"} motionValue={smoothY} />
         <HeroImage ref={imageRef} />
         <HeroDescription mouseVariantAction={props} />
       </Box>
-    </Box>
+    </div>
   );
 };
 

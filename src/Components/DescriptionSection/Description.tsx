@@ -1,10 +1,10 @@
 import { Typography, styled } from "@mui/material";
 import { useAnimation, useInView } from "framer-motion";
 import { useRef, useEffect } from "react";
+import { ArrowUpRightIcon } from "@heroicons/react/24/outline";
 
 import classes from "./styles.module.scss";
 import AnimatedButton from "../Buttons/AnimatedButton";
-import { ArrowUpRightIcon } from "@heroicons/react/24/outline";
 
 import AnimatedText from "../utils/AnimatedText";
 
@@ -23,7 +23,7 @@ const ArrowUpIcon = styled(ArrowUpRightIcon)(() => ({
 
 const Description = ({ onMouseEnter, onMouseLeave }: DescriptionProps) => {
   const description = useRef(null);
-  const isInView = useInView(description, { once: true });
+  const isInView = useInView(description, { amount: 0.5 });
   const controls = useAnimation();
 
   useEffect(() => {
@@ -33,7 +33,7 @@ const Description = ({ onMouseEnter, onMouseLeave }: DescriptionProps) => {
   }, [isInView, controls]);
 
   return (
-    <div ref={description} className={classes.description}>
+    <div className={classes.description} ref={description}>
       <AnimatedText text="About me" isInView={isInView} variant="subheder" />
       <div className={classes.body}>
         <div className={classes.left}>

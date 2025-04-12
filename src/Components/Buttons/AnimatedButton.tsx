@@ -1,39 +1,14 @@
 import { ReactNode, useEffect, useRef } from "react";
 import { Box } from "../Shared";
 import { styled, Typography } from "@mui/material";
-import gsap from "gsap";
+import { createMyTimeline } from "./animation";
+import classes from "./styles.module.scss";
 
 interface AnimatedButtonProps {
   icon?: ReactNode;
   label?: string;
   iconStart?: boolean;
 }
-
-const buttonStyle = {
-  borderRadius: "3em",
-  border: "1px solid",
-  position: "relative",
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "center",
-  padding: "2px 20px",
-  overflow: "hidden",
-  width: "fit-content",
-  "& svg": {
-    position: "relative",
-    zIndex: 1,
-    transition: "color 0.2s linear",
-    color: "black",
-  },
-  "& p": {
-    position: "relative",
-    zIndex: 1,
-    transition: "color 0.2s linear",
-  },
-  "&:hover p, &:hover svg": {
-    color: "white",
-  },
-};
 
 const StyledFillerPill = styled("div")(() => ({
   width: "120%",
@@ -46,28 +21,14 @@ const StyledFillerPill = styled("div")(() => ({
 
 const AnimatedButton = ({ icon, iconStart, label }: AnimatedButtonProps) => {
   const circle = useRef(null);
+  const textRef = useRef<HTMLDivElement | null>(null);
   const timeline = useRef<gsap.core.Timeline | null>(null);
   let timeoutId: number | null | undefined = null;
 
   useEffect(() => {
-    timeline.current = gsap.timeline({ paused: true });
-    timeline.current
-      .to(
-        circle.current,
-        {
-          left: "-10%",
-          width: "120%",
-          height: "300%",
-          duration: 0.6,
-          ease: "power1.out",
-        },
-        "enter"
-      )
-      .to(
-        circle.current,
-        { left: "100%", width: "125%", height: "300%", duration: 0.4 },
-        "exit"
-      );
+    const letters = textRef.current!.querySelectorAll("span");
+    const circleEl = circle.current!;
+    timeline.current = createMyTimeline(circleEl, letters);
   }, []);
 
   const manageMouseEnter = () => {
@@ -86,14 +47,18 @@ const AnimatedButton = ({ icon, iconStart, label }: AnimatedButtonProps) => {
 
   return (
     <Box
-      sx={buttonStyle}
+      className={classes.button}
       onMouseEnter={manageMouseEnter}
       onMouseLeave={manageMouseLeave}
     >
       <StyledFillerPill ref={circle} />
       {iconStart && icon}
       <Box marginLeft={iconStart ? 2 : 0} marginRight={iconStart ? 0 : 2}>
-        <Typography>{label}</Typography>
+        <Typography ref={textRef}>
+          {label?.split("").map((letter, index) => (
+            <span key={index}>{letter}</span>
+          ))}
+        </Typography>
       </Box>
       {!iconStart && icon}
     </Box>
