@@ -1,4 +1,4 @@
-import { motion, MotionValue, useInView } from "framer-motion";
+import { motion, MotionValue } from "framer-motion";
 import HeroButton from "./HeroButton";
 import { Box } from "../Shared";
 import { useRef } from "react";
@@ -33,7 +33,6 @@ const HeroDescription = ({
   scrollSpeed,
 }: HeroDescriptionProps) => {
   const container = useRef(null);
-  const isInView = useInView(container, { once: false });
 
   return (
     <Box
@@ -65,7 +64,7 @@ const HeroDescription = ({
         <motion.div
           variants={buttonVariants}
           initial="initial"
-          animate={isInView ? "open" : "initial"}
+          animate="open"
           onMouseEnter={mouseVariantAction.onMouseEnter}
           onMouseLeave={mouseVariantAction.onMouseLeave}
         >
