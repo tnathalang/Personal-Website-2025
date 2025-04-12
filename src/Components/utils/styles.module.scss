@@ -1,0 +1,11 @@
+.animateTextContainer {
+  position: relative;
+  overflow: hidden;
+  display: inline-flex;
+  vertical-align: bottom;
+}
+
+.text {
+  display: inline-block;
+  white-space: pre;
+}

@@ -11,6 +11,7 @@ import classes from "./main.module.scss";
 import useMousePosition from "./Components/utils/hooks/useMousePosition";
 import GradientBackground from "./Components/GradientBackground";
 import Description from "./Components/DescriptionSection/Description";
+import Test from "./Components/Test";
 
 const cursorVariants = {
   default: {

@@ -1,8 +1,6 @@
 import { motion } from "framer-motion";
 import { Typography } from "@mui/material";
 
-import { Box } from "../Shared";
-
 import styles from "./styles.module.scss";
 
 interface HeroTextProps {
@@ -34,23 +32,14 @@ const letter = {
 
 const HeroText = ({ text }: HeroTextProps) => {
   return (
-    <Box
-      className={styles.heroText}
+    <motion.div
+      className={styles.heroTextContainer}
       animate="show"
-      component={motion.div}
-      display="flex"
-      flexWrap="wrap"
-      initial="hidden"
-      marginLeft={8}
-      marginRight={8}
       variants={heroTextContainer}
-      width="100%"
-      zIndex={3}
+      initial="hidden"
     >
       {text.split(" ").map((alph, index) => (
-        <Typography
-          variant="h1"
-          component={motion.span}
+        <motion.span
           variants={letter}
           key={index}
           style={{
@@ -58,10 +47,10 @@ const HeroText = ({ text }: HeroTextProps) => {
             position: "relative",
           }}
         >
-          {alph === " " ? "\u00A0" : alph}
-        </Typography>
+          <Typography variant="h1">{alph === " " ? "\u00A0" : alph}</Typography>
+        </motion.span>
       ))}
-    </Box>
+    </motion.div>
   );
 };
 

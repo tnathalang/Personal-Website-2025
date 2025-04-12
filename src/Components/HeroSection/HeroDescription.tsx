@@ -1,4 +1,4 @@
-import { motion, useInView } from "framer-motion";
+import { motion, MotionValue, useInView } from "framer-motion";
 import HeroButton from "./HeroButton";
 import { Box } from "../Shared";
 import { useRef } from "react";
@@ -7,6 +7,7 @@ import AnimatedText from "../utils/AnimatedText";
 
 interface HeroDescriptionProps {
   mouseVariantAction: MouseActions;
+  scrollSpeed?: MotionValue<number>;
 }
 
 const phrase =
@@ -27,9 +28,12 @@ const buttonVariants = {
   },
 };
 
-const HeroDescription = ({ mouseVariantAction }: HeroDescriptionProps) => {
+const HeroDescription = ({
+  mouseVariantAction,
+  scrollSpeed,
+}: HeroDescriptionProps) => {
   const container = useRef(null);
-  const isInView = useInView(container);
+  const isInView = useInView(container, { once: false });
 
   return (
     <Box
@@ -46,6 +50,7 @@ const HeroDescription = ({ mouseVariantAction }: HeroDescriptionProps) => {
         marginRight={5}
         marginLeft={5}
         gridColumn={{ xs: "1", sm: "1" }}
+        component={motion.div}
       >
         <AnimatedText text={phrase} />
       </Box>

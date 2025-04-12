@@ -1,9 +1,12 @@
-import { motion } from "framer-motion";
+import { motion, MotionValue } from "framer-motion";
 
-import { Box } from "../Shared";
 import Portrait from "../../assets/Portrait.png";
 
 import styles from "./styles.module.scss";
+
+interface HeroImageProps {
+  scrollSpeed?: MotionValue<number>;
+}
 
 const imageVariant = {
   hidden: { clipPath: "inset(100% 0% 0% 0%)", opacity: 0 },
@@ -14,17 +17,18 @@ const imageVariant = {
   },
 };
 
-const HeroImage = () => {
+const HeroImage = ({ scrollSpeed }: HeroImageProps) => {
   return (
-    <Box className={styles.imageWrapper}>
+    <motion.div className={styles.imageWrapper}>
       <motion.img
         src={Portrait}
+        alt="Portrait"
         // variants={imageVariant}
         // initial="hidden"
         // animate="show"
         className={styles.heroImg}
       />
-    </Box>
+    </motion.div>
   );
 };
 
