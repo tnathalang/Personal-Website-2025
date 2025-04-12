@@ -1,36 +1,16 @@
-import { Typography } from "@mui/material";
 import { motion, useInView } from "framer-motion";
 import HeroButton from "./HeroButton";
 import { Box } from "../Shared";
 import { useRef } from "react";
+import { MouseActions } from "./types";
+import AnimatedText from "../utils/AnimatedText";
+
+interface HeroDescriptionProps {
+  mouseVariantAction: MouseActions;
+}
 
 const phrase =
   "Turning ideas into interactive web experiences—one line of React code, one sip of coffee, and one cat cuddle at a time. Crafting front-end magic with passion and precision building intuitive, user-centered designs";
-const words = phrase.split(" ");
-
-const containerVariants = {
-  initial: {},
-  open: {
-    transition: {
-      staggerChildren: 0.05, // delay between words
-    },
-  },
-};
-
-const wordVariants = {
-  initial: {
-    clipPath: "inset(100% 0 0 0)",
-    opacity: 0,
-  },
-  open: {
-    clipPath: "inset(0% 0 0 0)",
-    opacity: 1,
-    transition: {
-      duration: 0.6,
-      ease: "easeOut",
-    },
-  },
-};
 
 const buttonVariants = {
   initial: {
@@ -47,7 +27,7 @@ const buttonVariants = {
   },
 };
 
-const HeroDescription = () => {
+const HeroDescription = ({ mouseVariantAction }: HeroDescriptionProps) => {
   const container = useRef(null);
   const isInView = useInView(container);
 
@@ -57,60 +37,34 @@ const HeroDescription = () => {
       gap={2}
       gridTemplateColumns={{ xs: "1fr", sm: "1fr 1fr" }} // 1 column on mobile, 2 equal columns on desktop, fr is fraction
       paddingX={{ xs: 2, sm: 4, md: 6 }} // extra small 2, small 4, medium 6
-      paddingY={{ xs: 4, sm: 6 }}
       ref={container}
     >
-      <Box
-        display="flex"
-        justifyContent="center"
-        alignItems="center"
-        gridColumn={{ xs: "1", sm: "1" }}
-        gridRow={{ xs: "2", sm: "1" }} // button goes below text on mobile
-        viewport={{ once: true }}
-      >
-        <motion.div
-          variants={buttonVariants}
-          initial="initial"
-          animate={isInView ? "open" : "initial"}
-        >
-          <HeroButton />
-        </motion.div>
-      </Box>
-
       <Box
         display="flex"
         justifyContent="flex-start"
         alignItems="center"
         marginRight={5}
         marginLeft={5}
+        gridColumn={{ xs: "1", sm: "1" }}
+      >
+        <AnimatedText text={phrase} />
+      </Box>
+
+      <Box
+        display="flex"
+        justifyContent="center"
+        alignItems="center"
         gridColumn={{ xs: "1", sm: "2" }}
-        gridRow={{ xs: "1", sm: "1" }} // text first on all views
+        viewport={{ once: true }}
       >
         <motion.div
-          variants={containerVariants}
+          variants={buttonVariants}
           initial="initial"
           animate={isInView ? "open" : "initial"}
-          style={{
-            display: "flex",
-            flexWrap: "wrap",
-            overflow: "hidden",
-            gap: "0.25rem",
-          }}
+          onMouseEnter={mouseVariantAction.onMouseEnter}
+          onMouseLeave={mouseVariantAction.onMouseLeave}
         >
-          {words.map((word, index) => (
-            <Typography
-              variant="body1"
-              component={motion.span}
-              key={index}
-              variants={wordVariants}
-              style={{
-                display: "inline-block",
-                whiteSpace: "pre",
-              }}
-            >
-              {word + " "}
-            </Typography>
-          ))}
+          <HeroButton label="Scroll for more" />
         </motion.div>
       </Box>
     </Box>

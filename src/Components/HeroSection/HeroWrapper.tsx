@@ -6,14 +6,19 @@ import HeroDescription from "./HeroDescription";
 
 import styles from "./styles.module.scss";
 
-const HeroWrapper = () => {
+interface HeroWrapperProps {
+  onMouseEnter: () => void;
+  onMouseLeave: () => void;
+}
+
+const HeroWrapper = (props: HeroWrapperProps) => {
   return (
     <Box>
       <Box className={styles.heroContainer}>
         <HeroText text={"Hello - I'm Akira"} />
         <HeroImage />
       </Box>
-      <HeroDescription />
+      <HeroDescription mouseVariantAction={props} />
     </Box>
   );
 };

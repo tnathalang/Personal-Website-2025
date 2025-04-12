@@ -1,22 +1,18 @@
-import { styled, Typography } from "@mui/material";
+import { styled } from "@mui/material";
 import { ChevronDownIcon } from "@heroicons/react/24/outline";
 import AnimatedButton from "../Buttons/AnimatedButton";
-import { Box } from "../Shared";
+
+interface HeroButtonProps {
+  label: string;
+}
 
 const DownIcon = styled(ChevronDownIcon)(() => ({
   width: "16px",
   height: "16px",
 }));
 
-const HeroButton = () => {
-  return (
-    <AnimatedButton>
-      <DownIcon />
-      <Box marginLeft={2}>
-        <Typography>Scroll for more</Typography>
-      </Box>
-    </AnimatedButton>
-  );
+const HeroButton = ({ label }: HeroButtonProps) => {
+  return <AnimatedButton icon={<DownIcon />} label={label} iconStart />;
 };
 
 export default HeroButton;

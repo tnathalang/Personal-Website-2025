@@ -1,10 +1,12 @@
 import { ReactNode, useEffect, useRef } from "react";
 import { Box } from "../Shared";
-import { styled } from "@mui/material";
+import { styled, Typography } from "@mui/material";
 import gsap from "gsap";
 
 interface AnimatedButtonProps {
-  children?: ReactNode;
+  icon?: ReactNode;
+  label?: string;
+  iconStart?: boolean;
 }
 
 const buttonStyle = {
@@ -14,8 +16,9 @@ const buttonStyle = {
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
-  padding: "10px 60px 10px 60px",
+  padding: "2px 20px",
   overflow: "hidden",
+  width: "fit-content",
   "& svg": {
     position: "relative",
     zIndex: 1,
@@ -41,7 +44,7 @@ const StyledFillerPill = styled("div")(() => ({
   backgroundColor: "#A8D08D",
 }));
 
-const AnimatedButton = ({ children }: AnimatedButtonProps) => {
+const AnimatedButton = ({ icon, iconStart, label }: AnimatedButtonProps) => {
   const circle = useRef(null);
   const timeline = useRef<gsap.core.Timeline | null>(null);
   let timeoutId: number | null | undefined = null;
@@ -88,7 +91,11 @@ const AnimatedButton = ({ children }: AnimatedButtonProps) => {
       onMouseLeave={manageMouseLeave}
     >
       <StyledFillerPill ref={circle} />
-      {children}
+      {iconStart && icon}
+      <Box marginLeft={iconStart ? 2 : 0} marginRight={iconStart ? 0 : 2}>
+        <Typography>{label}</Typography>
+      </Box>
+      {!iconStart && icon}
     </Box>
   );
 };
