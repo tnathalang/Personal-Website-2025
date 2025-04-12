@@ -7,7 +7,6 @@ import AnimatedButton from "../Buttons/AnimatedButton";
 import { ArrowUpRightIcon } from "@heroicons/react/24/outline";
 
 import AnimatedText from "../utils/AnimatedText";
-import { MouseActions } from "../HeroSection/types";
 
 interface DescriptionProps {
   onMouseEnter: () => void;

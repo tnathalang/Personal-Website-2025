@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 75vh;
+  height: 94.5vh;
   overflow: hidden;
 
   @media (max-width: 768px) {
@@ -37,11 +37,11 @@
   overflow: hidden;
   position: relative;
   top: -55px;
+  max-height: 60vh;
 
   // 768px is the most commonly used breakpoints for tablets and below
   @media (max-width: 768px) {
-    // padding: 1rem;
-    top: -75px;
+    top: -91px;
   }
 }
 
@@ -55,5 +55,14 @@
 
   @media (max-width: 768px) {
     object-fit: cover; // Use cover to fill more space on mobile
+  }
+}
+
+.heroDescriptionContainer {
+  margin-top: 80px;
+
+  @media (max-width: 768px) {
+    margin-top: 0;
+    margin-bottom: 40px;
   }
 }

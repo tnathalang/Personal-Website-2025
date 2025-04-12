@@ -1,13 +1,14 @@
-import { motion, MotionValue } from "framer-motion";
+import { motion } from "framer-motion";
 import HeroButton from "./HeroButton";
 import { Box } from "../Shared";
 import { useRef } from "react";
 import { MouseActions } from "./types";
 import AnimatedText from "../utils/AnimatedText";
 
+import classes from "./styles.module.scss";
+
 interface HeroDescriptionProps {
   mouseVariantAction: MouseActions;
-  scrollSpeed?: MotionValue<number>;
 }
 
 const phrase =
@@ -28,14 +29,12 @@ const buttonVariants = {
   },
 };
 
-const HeroDescription = ({
-  mouseVariantAction,
-  scrollSpeed,
-}: HeroDescriptionProps) => {
+const HeroDescription = ({ mouseVariantAction }: HeroDescriptionProps) => {
   const container = useRef(null);
 
   return (
     <Box
+      className={classes.heroDescriptionContainer}
       display="grid"
       gap={2}
       gridTemplateColumns={{ xs: "1fr", sm: "1fr 1fr" }} // 1 column on mobile, 2 equal columns on desktop, fr is fraction
