@@ -3,8 +3,10 @@ import { motion, MotionValue } from "framer-motion";
 import Portrait from "../../assets/Portrait.png";
 
 import styles from "./styles.module.scss";
+import { RefObject } from "react";
 
 interface HeroImageProps {
+  ref: RefObject<null>;
   scrollSpeed?: MotionValue<number>;
 }
 
@@ -17,9 +19,9 @@ const imageVariant = {
   },
 };
 
-const HeroImage = ({ scrollSpeed }: HeroImageProps) => {
+const HeroImage = ({ ref, scrollSpeed }: HeroImageProps) => {
   return (
-    <motion.div className={styles.imageWrapper}>
+    <motion.div className={styles.imageWrapper} ref={ref}>
       <motion.img
         src={Portrait}
         alt="Portrait"

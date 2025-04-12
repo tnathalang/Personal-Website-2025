@@ -1,9 +1,10 @@
-import { motion } from "framer-motion";
+import { motion, MotionValue } from "framer-motion";
 import { Typography } from "@mui/material";
 
 import styles from "./styles.module.scss";
 
 interface HeroTextProps {
+  motionValue: MotionValue<number>;
   text: string;
 }
 
@@ -30,10 +31,11 @@ const letter = {
   },
 };
 
-const HeroText = ({ text }: HeroTextProps) => {
+const HeroText = ({ motionValue, text }: HeroTextProps) => {
   return (
     <motion.div
       className={styles.heroTextContainer}
+      style={{ y: motionValue }}
       animate="show"
       variants={heroTextContainer}
       initial="hidden"
