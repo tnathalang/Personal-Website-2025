@@ -22,7 +22,6 @@ const Home = () => {
     <main>
       <Header />
       <MainContent />
-      <Footer />
     </main>
   );
 };
