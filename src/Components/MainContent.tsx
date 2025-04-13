@@ -45,14 +45,12 @@ const MainContent = () => {
           top: y - 10,
         }}
       />
-      <div className={classes.hero}>
-        <HeroWrapper />
-        <IntroSection
-          ref={introSectionRef}
-          onMouseLeave={handleMouseLeave}
-          onMouseEnter={handleMouseEnter("hover")}
-        />
-      </div>
+      <HeroWrapper />
+      <IntroSection
+        ref={introSectionRef}
+        onMouseLeave={handleMouseLeave}
+        onMouseEnter={handleMouseEnter("hover")}
+      />
       <Description
         onMouseLeave={handleMouseLeave}
         onMouseEnter={handleMouseEnter("hover")}
