@@ -4,9 +4,10 @@ import { useState } from "react";
 import useMousePosition from "./utils/hooks/useMousePosition";
 import HeroWrapper from "./HeroSection/HeroWrapper";
 import Description from "./DescriptionSection/Description";
+import Footer from "./Footer/Footer";
+import IntroSection from "./IntroSection/IntroSection";
 
 import classes from "../main.module.scss";
-import Footer from "./Footer/Footer";
 
 const cursorVariants = {
   default: {
@@ -43,10 +44,16 @@ const MainContent = () => {
           top: y - 10,
         }}
       />
-      <HeroWrapper
-        onMouseLeave={handleMouseLeave}
-        onMouseEnter={handleMouseEnter("hover")}
-      />
+      <div className={classes.hero}>
+        <HeroWrapper
+          onMouseLeave={handleMouseLeave}
+          onMouseEnter={handleMouseEnter("hover")}
+        />
+        <IntroSection
+          onMouseLeave={handleMouseLeave}
+          onMouseEnter={handleMouseEnter("hover")}
+        />
+      </div>
       <Description
         onMouseLeave={handleMouseLeave}
         onMouseEnter={handleMouseEnter("hover")}

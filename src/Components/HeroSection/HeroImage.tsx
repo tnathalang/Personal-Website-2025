@@ -1,9 +1,9 @@
+import { RefObject } from "react";
 import { motion, MotionValue } from "framer-motion";
 
 import Portrait from "../../assets/Portrait.png";
 
 import styles from "./styles.module.scss";
-import { RefObject } from "react";
 
 interface HeroImageProps {
   ref: RefObject<null>;

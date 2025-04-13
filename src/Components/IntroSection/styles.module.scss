@@ -1,0 +1,11 @@
+.introSectionContainer {
+  background-color: white;
+  flex-grow: 1;
+  z-index: 1;
+  padding-bottom: 8px;
+
+  @media (max-width: 768px) {
+    margin-top: 0;
+    margin-bottom: 40px;
+  }
+}

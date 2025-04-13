@@ -1,15 +1,13 @@
 import { motion } from "framer-motion";
-import HeroButton from "./HeroButton";
+import HeroButton from "../HeroSection/HeroButton";
 import { Box } from "../Shared";
 import { useRef } from "react";
-import { MouseActions } from "./types";
+import { MouseActions } from "../HeroSection/types";
 import AnimatedText from "../utils/AnimatedText";
 
 import classes from "./styles.module.scss";
 
-interface HeroDescriptionProps {
-  mouseVariantAction: MouseActions;
-}
+interface IntroSectionProps extends MouseActions {}
 
 const phrase =
   "Turning ideas into interactive web experiences—one line of React code, one sip of coffee, and one cat cuddle at a time. Crafting front-end magic with passion and precision building intuitive, user-centered designs";
@@ -17,7 +15,7 @@ const phrase =
 const buttonVariants = {
   initial: {
     opacity: 0,
-    y: 20, // Start 20px below the normal position
+    y: 20,
   },
   open: {
     opacity: 1,
@@ -29,12 +27,12 @@ const buttonVariants = {
   },
 };
 
-const HeroDescription = ({ mouseVariantAction }: HeroDescriptionProps) => {
+const IntroSection = ({ onMouseEnter, onMouseLeave }: IntroSectionProps) => {
   const container = useRef(null);
 
   return (
     <Box
-      className={classes.heroDescriptionContainer}
+      className={classes.introSectionContainer}
       display="grid"
       gap={2}
       gridTemplateColumns={{ xs: "1fr", sm: "1fr 1fr" }} // 1 column on mobile, 2 equal columns on desktop, fr is fraction
@@ -64,8 +62,8 @@ const HeroDescription = ({ mouseVariantAction }: HeroDescriptionProps) => {
           variants={buttonVariants}
           initial="initial"
           animate="open"
-          onMouseEnter={mouseVariantAction.onMouseEnter}
-          onMouseLeave={mouseVariantAction.onMouseLeave}
+          onMouseEnter={onMouseEnter}
+          onMouseLeave={onMouseLeave}
         >
           <HeroButton label="Scroll for more" />
         </motion.div>
@@ -74,4 +72,4 @@ const HeroDescription = ({ mouseVariantAction }: HeroDescriptionProps) => {
   );
 };
 
-export default HeroDescription;
+export default IntroSection;

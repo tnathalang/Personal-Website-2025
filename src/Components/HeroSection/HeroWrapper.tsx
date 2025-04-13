@@ -1,13 +1,11 @@
-import { Box } from "../Shared";
+import { useRef } from "react";
+import { motion, useScroll, useSpring, useTransform } from "framer-motion";
 
 import HeroText from "./HeroText";
 import HeroImage from "./HeroImage";
-import HeroDescription from "./HeroDescription";
+import { MouseActions } from "./types";
 
 import styles from "./styles.module.scss";
-import { MouseActions } from "./types";
-import { motion, useScroll, useSpring, useTransform } from "framer-motion";
-import { useRef } from "react";
 
 interface HeroWrapperProps extends MouseActions {}
 
@@ -35,16 +33,13 @@ const HeroWrapper = (props: HeroWrapperProps) => {
   );
 
   return (
-    <div>
-      <motion.div
-        className={styles.heroContainer}
-        style={{ y: containerYMotionValue }}
-      >
-        <HeroText text={"Hello - I'm Akira"} motionValue={smoothY} />
-        <HeroImage ref={imageRef} />
-        <HeroDescription mouseVariantAction={props} />
-      </motion.div>
-    </div>
+    <motion.div
+      className={styles.heroContainer}
+      style={{ y: containerYMotionValue }}
+    >
+      <HeroText text={"Hello - I'm Akira"} motionValue={smoothY} />
+      <HeroImage ref={imageRef} />
+    </motion.div>
   );
 };
 
