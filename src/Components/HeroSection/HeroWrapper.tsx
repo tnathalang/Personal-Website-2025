@@ -37,7 +37,7 @@ const HeroWrapper = (_props: HeroWrapperProps) => {
       style={{ y: containerYMotionValue }}
     >
       <HeroText text={"Hello - I'm Akira"} motionValue={smoothY} />
-      <HeroImage ref={imageRef} />
+      <HeroImage />
     </motion.div>
   );
 };
