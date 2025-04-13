@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useRef, useState } from "react";
 
 import useMousePosition from "./utils/hooks/useMousePosition";
 import HeroWrapper from "./HeroSection/HeroWrapper";
@@ -24,6 +24,7 @@ const cursorVariants = {
 };
 
 const MainContent = () => {
+  const introSectionRef = useRef(null);
   const [cursorVariant, setCursorVariant] = useState("default");
   const { x, y } = useMousePosition();
 
@@ -45,11 +46,9 @@ const MainContent = () => {
         }}
       />
       <div className={classes.hero}>
-        <HeroWrapper
-          onMouseLeave={handleMouseLeave}
-          onMouseEnter={handleMouseEnter("hover")}
-        />
+        <HeroWrapper />
         <IntroSection
+          ref={introSectionRef}
           onMouseLeave={handleMouseLeave}
           onMouseEnter={handleMouseEnter("hover")}
         />

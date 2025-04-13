@@ -39,6 +39,7 @@
   position: relative;
   top: -55px;
   max-height: 60vh;
+  overflow: hidden;
 
   @media (max-width: 768px) {
     top: -91px;
@@ -48,7 +49,8 @@
 
 .heroImg {
   height: 100%;
-  width: 100%;
+  object-fit: cover; // ensures we crop, not stretch
+  width: auto; // maintain natural aspect
   max-height: 60vh;
   object-fit: contain;
   display: block;

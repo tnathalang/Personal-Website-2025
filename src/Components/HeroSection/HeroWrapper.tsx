@@ -3,13 +3,12 @@ import { motion, useScroll, useSpring, useTransform } from "framer-motion";
 
 import HeroText from "./HeroText";
 import HeroImage from "./HeroImage";
-import { MouseActions } from "./types";
 
 import styles from "./styles.module.scss";
 
-interface HeroWrapperProps extends MouseActions {}
+interface HeroWrapperProps {}
 
-const HeroWrapper = (props: HeroWrapperProps) => {
+const HeroWrapper = (_props: HeroWrapperProps) => {
   const wrapperRef = useRef(null);
   const imageRef = useRef(null);
 

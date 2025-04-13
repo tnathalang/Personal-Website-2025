@@ -1,5 +1,4 @@
-import { RefObject } from "react";
-import { motion, MotionValue } from "framer-motion";
+import { RefObject, useRef } from "react";
 
 import Portrait from "../../assets/Portrait.png";
 
@@ -7,29 +6,14 @@ import styles from "./styles.module.scss";
 
 interface HeroImageProps {
   ref: RefObject<null>;
-  scrollSpeed?: MotionValue<number>;
 }
 
-const imageVariant = {
-  hidden: { clipPath: "inset(100% 0% 0% 0%)", opacity: 0 },
-  show: {
-    clipPath: "inset(0% 0% 0% 0%)",
-    opacity: 1,
-    transition: { duration: 0.6, ease: "easeOut", delay: 0.6 },
-  },
-};
+const HeroImage = (_props: HeroImageProps) => {
+  const imageWrapperRef = useRef(null);
 
-const HeroImage = ({ ref, scrollSpeed }: HeroImageProps) => {
   return (
-    <div className={styles.imageWrapper} ref={ref}>
-      <motion.img
-        src={Portrait}
-        alt="Portrait"
-        // variants={imageVariant}
-        // initial="hidden"
-        // animate="show"
-        className={styles.heroImg}
-      />
+    <div className={styles.imageWrapper} ref={imageWrapperRef}>
+      <img src={Portrait} alt="Portrait" className={styles.heroImg} />
     </div>
   );
 };
