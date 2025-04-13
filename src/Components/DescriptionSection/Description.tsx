@@ -5,7 +5,6 @@ import { ArrowUpRightIcon } from "@heroicons/react/24/outline";
 
 import classes from "./styles.module.scss";
 import AnimatedButton from "../Buttons/AnimatedButton";
-
 import AnimatedText from "../utils/AnimatedText";
 
 interface DescriptionProps {

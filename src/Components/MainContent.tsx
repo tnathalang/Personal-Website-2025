@@ -41,8 +41,6 @@ const MainContent = () => {
           top: y - 10,
         }}
       />
-
-      <Header />
       <HeroWrapper
         onMouseLeave={handleMouseLeave}
         onMouseEnter={handleMouseEnter}
