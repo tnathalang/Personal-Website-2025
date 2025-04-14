@@ -27,7 +27,7 @@ const HoverFlipText = ({ label }: HoverFlipTextprops) => {
           initial: { y: "0%" },
           hovered: { y: "-100%", opacity: 0 },
         }}
-        transition={{ duration: 0.2, ease: "easeIn" }}
+        transition={{ duration: 0.1, ease: "easeInOut" }}
       >
         <Typography className={classes.text}>{label}</Typography>
       </motion.div>
@@ -42,7 +42,7 @@ const HoverFlipText = ({ label }: HoverFlipTextprops) => {
           initial: { y: "100%" },
           hovered: { y: "0%" },
         }}
-        transition={{ duration: 0.2, ease: "easeIn" }}
+        transition={{ duration: 0.1, ease: "easeOut" }}
       >
         <Typography className={classes.text}>{label}</Typography>
       </motion.div>

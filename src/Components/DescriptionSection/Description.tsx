@@ -7,6 +7,7 @@ import classes from "./styles.module.scss";
 import AnimatedButton from "../Buttons/AnimatedButton";
 
 import AnimatedText from "../utils/AnimatedText";
+import AutoFlipText from "../utils/AutoFlipText";
 
 interface DescriptionProps {
   onMouseEnter: () => void;
@@ -14,7 +15,14 @@ interface DescriptionProps {
 }
 
 const label =
-  "I'm a front-end engineer who cares about the details. I build responsive, accessible web experiences with React, TypeScript, and GraphQL, and bring a full-stack perspective from my time working with Ruby on Rails. I love crafting clean UI, writing thoughtful, and collaborating with teams to turn ideas into polished products.";
+  "I'm a front-end developer who cares about the details. I build responsive, accessible web experiences with React, TypeScript, and GraphQL—and I’m comfortable diving into the back end too, especially with Ruby on Rails. I love crafting clean UI, writing thoughtful code, and collaborating with teams to turn ideas into polished products.";
+
+const punchLines = [
+  "good code is never finished.",
+  "the best solutions evolve over time.",
+  "each line can be better than the last.",
+  "every challenge is an opportunity to improve.",
+];
 
 const ArrowUpIcon = styled(ArrowUpRightIcon)(() => ({
   width: "16px",
@@ -29,20 +37,23 @@ const Description = ({ onMouseEnter, onMouseLeave }: DescriptionProps) => {
     <div className={classes.description} ref={description}>
       <AnimatedText text="About me" isInView={isInView} variant="subheder" />
       <div className={classes.body}>
-        <div className={classes.left}>
+        <div className={classes.leftSection}>
           <AnimatedText text={label} isInView={isInView} />
           <div
+            className={classes.button}
             onMouseEnter={onMouseEnter}
             onMouseLeave={onMouseLeave}
-            style={{ width: "fit-content" }}
           >
             <AnimatedButton label="More about me" icon={<ArrowUpIcon />} />
           </div>
         </div>
-        <div className={classes.right}>
-          <Typography variant="subtitle2">
-            Always learning, always refining — because good code is never
-            finished.
+        <div className={classes.rightSection}>
+          <Typography>Always learning, always refining —</Typography>
+          <Typography className={classes.flip}>
+            <span>because </span>
+            <span>
+              <AutoFlipText labels={punchLines} />
+            </span>
           </Typography>
         </div>
       </div>

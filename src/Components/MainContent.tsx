@@ -6,9 +6,9 @@ import HeroWrapper from "./HeroSection/HeroWrapper";
 import Description from "./DescriptionSection/Description";
 import Footer from "./Footer/Footer";
 import IntroSection from "./IntroSection/IntroSection";
+import ToolsCard from "./ToolsSection/ToolsCard";
 
 import classes from "../main.module.scss";
-import ToolsCard from "./ToolsSection/ToolsCard";
 
 const cursorVariants = {
   default: {
@@ -63,10 +63,10 @@ const MainContent = () => {
           onMouseEnter={handleMouseEnter("hover")}
         />
       </div>
-      <Footer
+      {/* <Footer
         onMouseLeave={handleMouseLeave}
         onMouseEnter={handleMouseEnter("footer")}
-      />
+      /> */}
     </div>
   );
 };
