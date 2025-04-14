@@ -1,10 +1,11 @@
 import { Typography, styled } from "@mui/material";
-import { useAnimation, useInView } from "framer-motion";
-import { useRef, useEffect } from "react";
+import { useInView } from "framer-motion";
+import { useRef } from "react";
 import { ArrowUpRightIcon } from "@heroicons/react/24/outline";
 
 import classes from "./styles.module.scss";
 import AnimatedButton from "../Buttons/AnimatedButton";
+
 import AnimatedText from "../utils/AnimatedText";
 
 interface DescriptionProps {
@@ -23,13 +24,6 @@ const ArrowUpIcon = styled(ArrowUpRightIcon)(() => ({
 const Description = ({ onMouseEnter, onMouseLeave }: DescriptionProps) => {
   const description = useRef(null);
   const isInView = useInView(description, { amount: 0.5 });
-  const controls = useAnimation();
-
-  useEffect(() => {
-    if (isInView) {
-      controls.start("visible");
-    }
-  }, [isInView, controls]);
 
   return (
     <div className={classes.description} ref={description}>

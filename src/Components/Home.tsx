@@ -7,7 +7,6 @@ const Home = () => {
   useEffect(() => {
     const lenis = new Lenis();
 
-    // request animation frame
     function raf(time: number) {
       lenis.raf(time);
 

@@ -54,9 +54,9 @@ const MainContent = () => {
           onMouseEnter={handleMouseEnter("hover")}
         />
       </div>
-
-      <ToolsCard />
-
+      <div className={classes.cardContainer}>
+        <ToolsCard />
+      </div>
       <div className={classes.cardContainer}>
         <Description
           onMouseLeave={handleMouseLeave}

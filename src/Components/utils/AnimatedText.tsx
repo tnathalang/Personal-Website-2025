@@ -31,7 +31,7 @@ const AnimatedText = ({
     <div>
       {words.map((word, index) => (
         <span className={classes.animateTextContainer} key={index}>
-          <MaskTextWrapper>
+          <MaskTextWrapper isInView={isInView}>
             <Typography
               variant={variant === "default" ? "body1" : "h3"}
               className={classes.text}

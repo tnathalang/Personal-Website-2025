@@ -2,9 +2,10 @@ import { useRef } from "react";
 import { useInView } from "framer-motion";
 
 import AnimatedText from "../utils/AnimatedText";
-import classes from "./styles.module.scss";
 import HoverFlipText from "../utils/HoverFlipText";
 import MaskTextWrapper from "../utils/MaskTextWrapper";
+
+import classes from "./styles.module.scss";
 
 interface ToolsCardprops {}
 
@@ -12,12 +13,12 @@ const labels = ["React", "Typescript", "Ruby on rails", "GraphQL", "Apollo"];
 
 const ToolsCard = (_props: ToolsCardprops) => {
   const description = useRef(null);
-  const isInView = useInView(description, { amount: 0.5 });
+  const isInView = useInView(description, { amount: 0.75 });
 
   return (
     <div className={classes.toolsSection} ref={description}>
       <div className={classes.body}>
-        <div className={classes.left}>
+        <div className={classes.leftSection}>
           <AnimatedText
             variant="subheder"
             text="What I’m usually building with"
