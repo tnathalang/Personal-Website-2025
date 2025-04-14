@@ -63,10 +63,10 @@ const MainContent = () => {
           onMouseEnter={handleMouseEnter("hover")}
         />
       </div>
-      {/* <Footer
+      <Footer
         onMouseLeave={handleMouseLeave}
         onMouseEnter={handleMouseEnter("footer")}
-      /> */}
+      />
     </div>
   );
 };
