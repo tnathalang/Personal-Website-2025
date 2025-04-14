@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { ThemeProvider } from "@mui/material";
 
 import theme from "./theme";
-
 import Home from "./Components/Home";
 
 function App() {

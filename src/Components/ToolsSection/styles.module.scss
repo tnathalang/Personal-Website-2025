@@ -1,0 +1,78 @@
+.toolsSection {
+  padding-left: 88px;
+  padding-right: 88px;
+  padding-top: 100px;
+  background-color: black;
+  color: white;
+  z-index: 20;
+  position: relative;
+  color: #b7ab98;
+}
+
+.body {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+  margin-top: 24px;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 32px;
+  }
+}
+
+.left {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.toolsCard {
+  padding-top: 40px;
+  padding-bottom: 40px;
+  padding-left: 20px;
+  padding-right: 20px;
+  background-color: white;
+  color: black;
+}
+
+.titles {
+  flex: 1;
+  border-top: 1px solid rgba(183, 171, 152, 0.25);
+
+  .title {
+    border-bottom: 1px solid rgba(183, 171, 152, 0.25);
+    cursor: none;
+    position: relative;
+    .wrapper {
+      display: inline-block;
+      padding-left: 10%;
+
+      p {
+        display: inline-block;
+        text-transform: uppercase;
+        font-weight: 700;
+        font-size: 4vw;
+        line-height: 7.5vw;
+        margin: 0px;
+        position: relative;
+        z-index: 2;
+        &:nth-of-type(2) {
+          display: block;
+          position: absolute;
+          color: #1c1c1c;
+          top: 0;
+          z-index: 1;
+        }
+      }
+    }
+  }
+}

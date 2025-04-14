@@ -20,7 +20,7 @@ export function createMyTimeline(
     .to(
       letters,
       {
-        color: "white",
+        color: "#3b4b3b",
         ease: "none",
         duration: 0.001,
         stagger: 0.021,

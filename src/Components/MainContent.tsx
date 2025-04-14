@@ -8,6 +8,7 @@ import Footer from "./Footer/Footer";
 import IntroSection from "./IntroSection/IntroSection";
 
 import classes from "../main.module.scss";
+import ToolsCard from "./ToolsSection/ToolsCard";
 
 const cursorVariants = {
   default: {
@@ -46,15 +47,22 @@ const MainContent = () => {
         }}
       />
       <HeroWrapper />
-      <IntroSection
-        ref={introSectionRef}
-        onMouseLeave={handleMouseLeave}
-        onMouseEnter={handleMouseEnter("hover")}
-      />
-      <Description
-        onMouseLeave={handleMouseLeave}
-        onMouseEnter={handleMouseEnter("hover")}
-      />
+      <div className={classes.cardContainer}>
+        <IntroSection
+          ref={introSectionRef}
+          onMouseLeave={handleMouseLeave}
+          onMouseEnter={handleMouseEnter("hover")}
+        />
+      </div>
+
+      <ToolsCard />
+
+      <div className={classes.cardContainer}>
+        <Description
+          onMouseLeave={handleMouseLeave}
+          onMouseEnter={handleMouseEnter("hover")}
+        />
+      </div>
       <Footer
         onMouseLeave={handleMouseLeave}
         onMouseEnter={handleMouseEnter("footer")}

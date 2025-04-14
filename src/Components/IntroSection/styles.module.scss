@@ -1,9 +1,10 @@
 .introSectionContainer {
-  background-color: white;
+  background: #f7f6f3;
   z-index: 1;
   height: auto;
   padding-bottom: 180px;
   padding-top: 60px;
+  position: relative;
 
   @media (max-width: 768px) {
     margin-top: 0;

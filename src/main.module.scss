@@ -15,7 +15,7 @@
   z-index: 9999;
 
   @media (max-width: 768px) {
-    opacity: 0;
+    display: none;
   }
 }
 
@@ -23,4 +23,30 @@
   height: 100vh;
   display: flex;
   flex-direction: column;
+}
+
+.sectionsContainer {
+  height: 100vh;
+  position: sticky;
+  top: 0;
+}
+
+.cardContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: sticky;
+  top: 0px;
+
+  .card {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    top: -25%;
+    width: 1000px;
+  }
+}
+
+.mainContent {
+  // margin-bottom: 100vh;
 }

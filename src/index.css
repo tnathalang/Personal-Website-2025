@@ -23,6 +23,7 @@ body,
   height: 100%;
   overflow-x: visible;
   box-sizing: border-box;
+  background-color: #f7f6f3;
 }
 
 *,

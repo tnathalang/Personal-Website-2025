@@ -6,13 +6,14 @@
   background-color: black;
   color: white;
   z-index: 20;
+  position: relative;
 
   .body {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: flex-start;
-    gap: 200px; // spacing between columns
+    gap: 200px;
     margin-top: 24px;
 
     @media (max-width: 768px) {

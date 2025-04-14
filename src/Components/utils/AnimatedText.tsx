@@ -1,9 +1,9 @@
 import { Typography } from "@mui/material";
-import { motion, useAnimation } from "framer-motion";
+import { useAnimation } from "framer-motion";
 import { useEffect } from "react";
-import { getWordRevealAnimation } from "./animation";
 
 import classes from "./styles.module.scss";
+import MaskTextWrapper from "./MaskTextWrapper";
 
 interface AnimatedTextProps {
   text: string;
@@ -31,16 +31,14 @@ const AnimatedText = ({
     <div>
       {words.map((word, index) => (
         <span className={classes.animateTextContainer} key={index}>
-          <Typography
-            component={motion.span}
-            custom={index}
-            initial={{ transform: "translateY(100%)", opacity: 0 }}
-            variant={variant === "default" ? "body1" : "h3"}
-            animate={getWordRevealAnimation(index, isInView)}
-            className={classes.text}
-          >
-            {word + " "}
-          </Typography>
+          <MaskTextWrapper>
+            <Typography
+              variant={variant === "default" ? "body1" : "h3"}
+              className={classes.text}
+            >
+              {word + " "}
+            </Typography>
+          </MaskTextWrapper>
         </span>
       ))}
     </div>

@@ -18,10 +18,10 @@ const Home = () => {
   }, []);
 
   return (
-    <main>
+    <div>
       <Header />
       <MainContent />
-    </main>
+    </div>
   );
 };
 

@@ -1,19 +1,23 @@
 .button {
   border-radius: 3em;
-  border: 1px solid black;
+  border: 1px solid #c4c2bc;
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 2px 20px;
+  padding: 6px 24px;
   overflow: hidden;
   width: fit-content;
-  background-color: white;
+  background-color: #ebe9e4;
+
+  /* subtle depth */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4);
 }
 
 .button svg,
 .button p {
   position: relative;
   z-index: 1;
-  color: black;
+  color: #2f3e2f;
 }
