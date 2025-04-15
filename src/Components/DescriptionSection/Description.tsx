@@ -8,6 +8,7 @@ import AnimatedButton from "../Buttons/AnimatedButton";
 
 import AnimatedText from "../utils/AnimatedText";
 import AutoFlipText from "../utils/AutoFlipText";
+import TypewriterText from "../utils/TypewriterText";
 
 interface DescriptionProps {
   onMouseEnter: () => void;
@@ -50,10 +51,8 @@ const Description = ({ onMouseEnter, onMouseLeave }: DescriptionProps) => {
         <div className={classes.rightSection}>
           <Typography>Always learning, always refining —</Typography>
           <Typography className={classes.flip}>
-            <span>because </span>
-            <span>
-              <AutoFlipText labels={punchLines} />
-            </span>
+            because&nbsp;
+            <TypewriterText accented words={punchLines} typingSpeed="fast" />
           </Typography>
         </div>
       </div>

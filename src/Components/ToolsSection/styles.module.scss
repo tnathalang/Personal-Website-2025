@@ -1,6 +1,6 @@
 .toolsSection {
   width: 100%;
-  padding: 100px 88px 0;
+  padding: 100px 88px;
   background-color: var(--color-text);
   color: var(--color-main);
   z-index: 20;
@@ -20,7 +20,7 @@
 
   @media (max-width: 768px) {
     flex-direction: column;
-    gap: 32px; // adjust gap for mobile
+    gap: 32px;
     padding-bottom: 80px;
   }
 }
@@ -32,7 +32,7 @@
 }
 
 .toolsCard {
-  padding: 40px 20px; // simplified padding
+  padding: 40px 20px;
   background-color: var(--color-main);
   color: var(--color-text);
 }

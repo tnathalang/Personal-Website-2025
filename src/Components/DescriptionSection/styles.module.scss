@@ -65,21 +65,15 @@
 }
 
 .flip {
-  display: inline-block;
-  position: relative;
-  height: 80px;
-  width: 500px;
-  overflow: hidden;
-  white-space: nowrap;
+  display: block;
+  width: 100%;
+  overflow: visible;
+  white-space: normal;
+  word-break: break-word;
+  text-align: left;
 
   @media (max-width: 768px) {
     display: block;
-    width: 100%;
-    height: auto;
-    overflow: visible;
-    white-space: normal;
-    word-break: break-word;
-    text-align: left;
-    overflow-wrap: anywhere;
+    min-height: 3.5em; // prevent the shifting of the component when text is too long
   }
 }

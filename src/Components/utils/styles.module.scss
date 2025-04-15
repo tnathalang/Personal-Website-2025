@@ -9,3 +9,12 @@
   display: inline-block;
   white-space: pre;
 }
+
+.typeCursor {
+  display: inline-block;
+  width: 2px;
+  height: 1em;
+  margin-left: 4pm;
+  vertical-align: text-bottom;
+  background-color: var(--color-accent);
+}
