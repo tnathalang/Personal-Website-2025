@@ -5,29 +5,13 @@
   position: relative;
 }
 
-.content {
-  height: 100vh;
-}
-
-.hero {
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-.sectionsContainer {
-  height: 100vh;
-  position: sticky;
-  top: 0;
-}
-
 .cardContainer {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.beforeStickyFooter {
+.innerPageContainer {
   display: flex;
   align-items: center;
   justify-content: center;

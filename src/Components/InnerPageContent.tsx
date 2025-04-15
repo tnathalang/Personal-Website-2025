@@ -16,7 +16,7 @@ const InnerPageContent = ({
   handleMouseLeave,
 }: InnerPageContentProps) => {
   return (
-    <div className={classes.beforeStickyFooter}>
+    <div className={classes.innerPageContainer}>
       <div>
         <HeroWrapper />
         <div className={classes.cardContainer}>
