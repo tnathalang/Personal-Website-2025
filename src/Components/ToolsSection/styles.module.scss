@@ -1,11 +1,9 @@
 .toolsSection {
   width: 100%;
-  padding: 100px 88px;
+  padding: 120px 88px;
   background-color: var(--color-text);
   color: var(--color-main);
   z-index: 20;
-  position: sticky;
-  top: 0;
 
   @media (max-width: 768px) {
     padding: 2rem; // mobile padding
