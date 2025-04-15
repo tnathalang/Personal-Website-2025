@@ -4,7 +4,8 @@
   background-color: var(--color-text);
   color: var(--color-main);
   z-index: 20;
-  position: relative;
+  position: sticky;
+  top: 0;
 
   @media (max-width: 768px) {
     padding: 2rem; // mobile padding

@@ -32,13 +32,15 @@ const HeroWrapper = (_props: HeroWrapperProps) => {
   );
 
   return (
-    <motion.div
-      className={styles.heroContainer}
-      style={{ y: containerYMotionValue }}
-    >
-      <HeroText text={"Hello - I'm Akira"} motionValue={smoothY} />
-      <HeroImage />
-    </motion.div>
+    <div style={{ height: "100%" }}>
+      <motion.div
+        className={styles.heroContainer}
+        style={{ y: containerYMotionValue }}
+      >
+        <HeroText text={"Hello - I'm Akira"} motionValue={smoothY} />
+        <HeroImage />
+      </motion.div>
+    </div>
   );
 };
 
