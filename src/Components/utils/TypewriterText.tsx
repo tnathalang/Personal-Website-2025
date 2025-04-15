@@ -1,8 +1,9 @@
-import { Typography, TypographyVariant } from "@mui/material";
+import { Typography, TypographyVariant, useTheme } from "@mui/material";
 import { motion, useCycle } from "framer-motion";
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 
 import classes from "./styles.module.scss";
+import useTypewriter from "./hooks/useTypewriter";
 
 interface TypewriterTextProps {
   accented?: boolean;
@@ -19,48 +20,11 @@ const TypewriterText: React.FC<TypewriterTextProps> = ({
   variant = "body1",
   words,
 }) => {
-  const [text, setText] = useState("");
-  const [wordIndex, setWordIndex] = useState(0);
-  const [isDeleting, setIsDeleting] = useState(false);
+  const theme = useTheme();
   const [showCursor, cycleCursor] = useCycle(true, false);
-  const isNormalSpeed = typingSpeed === "normal";
-  const deletingSpeed = isNormalSpeed ? 50 : 10;
-  const speed = isNormalSpeed ? 100 : 40;
+  const text = useTypewriter({ words, pauseTime, typingSpeed });
 
-  // Typing/Deleting logic
-  useEffect(() => {
-    const currentWord = words[wordIndex];
-
-    const timeout = setTimeout(
-      () => {
-        if (!isDeleting) {
-          setText((prev) => currentWord.slice(0, prev.length + 1));
-        } else {
-          setText((prev) => prev.slice(0, -1));
-        }
-      },
-      isDeleting ? deletingSpeed : speed
-    );
-
-    return () => clearTimeout(timeout);
-  }, [text, isDeleting, wordIndex, words, typingSpeed, deletingSpeed]);
-
-  // Word transition logic
-  useEffect(() => {
-    const currentWord = words[wordIndex];
-
-    if (!isDeleting && text === currentWord) {
-      const pause = setTimeout(() => setIsDeleting(true), pauseTime);
-      return () => clearTimeout(pause);
-    }
-
-    if (isDeleting && text === "") {
-      setIsDeleting(false);
-      setWordIndex((prev) => (prev + 1) % words.length);
-    }
-  }, [text, isDeleting, wordIndex, words, pauseTime]);
-
-  // Cursor blinking cycle
+  // Cursor blinking logic
   useEffect(() => {
     const interval = setInterval(() => {
       cycleCursor();
@@ -71,7 +35,9 @@ const TypewriterText: React.FC<TypewriterTextProps> = ({
   return (
     <Typography
       variant={variant}
-      color={accented ? "#a8d08d" : "#ebe9e4"}
+      color={
+        accented ? theme.palette.secondary.main : theme.palette.primary.main
+      }
       style={{ display: "inline", whiteSpace: "normal" }}
     >
       {text}

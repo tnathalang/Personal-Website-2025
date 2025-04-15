@@ -7,8 +7,8 @@ import classes from "./styles.module.scss";
 import AnimatedButton from "../Buttons/AnimatedButton";
 
 import AnimatedText from "../utils/AnimatedText";
-import AutoFlipText from "../utils/AutoFlipText";
 import TypewriterText from "../utils/TypewriterText";
+import useTypewriter from "../utils/hooks/useTypewriter";
 
 interface DescriptionProps {
   onMouseEnter: () => void;
