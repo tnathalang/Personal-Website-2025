@@ -1,15 +1,13 @@
 import { motion } from "framer-motion";
 import HeroButton from "../HeroSection/HeroButton";
 import { Box } from "../Shared";
-import { RefObject } from "react";
 import { MouseActions } from "../HeroSection/types";
 import AnimatedText from "../utils/AnimatedText";
 
 import classes from "./styles.module.scss";
+import { useRef } from "react";
 
-interface IntroSectionProps extends MouseActions {
-  ref: RefObject<null>;
-}
+interface IntroSectionProps extends MouseActions {}
 
 const phrase =
   "Turning ideas into interactive web experiences—one line of React code, one sip of coffee, and one cat cuddle at a time. Crafting front-end magic with passion and precision building intuitive, user-centered designs";
@@ -29,11 +27,9 @@ const buttonVariants = {
   },
 };
 
-const IntroSection = ({
-  ref,
-  onMouseEnter,
-  onMouseLeave,
-}: IntroSectionProps) => {
+const IntroSection = ({ onMouseEnter, onMouseLeave }: IntroSectionProps) => {
+  const introSectionRef = useRef(null);
+
   return (
     <Box
       className={classes.introSectionContainer}
@@ -41,7 +37,7 @@ const IntroSection = ({
       gap={2}
       gridTemplateColumns={{ xs: "1fr", sm: "1fr 1fr" }} // 1 column on mobile, 2 equal columns on desktop, fr is fraction
       paddingX={{ xs: 2, sm: 4, md: 6 }} // extra small 2, small 4, medium 6
-      ref={ref}
+      ref={introSectionRef}
     >
       <Box
         display="flex"

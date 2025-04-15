@@ -13,7 +13,7 @@ const labels = ["React", "Typescript", "Ruby on rails", "GraphQL", "Apollo"];
 
 const ToolsCard = (_props: ToolsCardprops) => {
   const description = useRef(null);
-  const isInView = useInView(description, { amount: 0.75 });
+  const isInView = useInView(description, { amount: 0.5 });
 
   return (
     <div className={classes.toolsSection} ref={description}>
