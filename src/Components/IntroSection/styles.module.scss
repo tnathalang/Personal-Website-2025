@@ -1,10 +1,7 @@
 .introSectionContainer {
   background: #f7f6f3;
-  position: sticky;
-  top: 0;
-  height: 100%;
   z-index: 1;
-  padding-bottom: 180px;
+  padding-bottom: 120px;
   padding-top: 50px;
 
   @media (max-width: 768px) {
