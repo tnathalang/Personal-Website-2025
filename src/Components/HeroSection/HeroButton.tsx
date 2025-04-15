@@ -12,7 +12,18 @@ const DownIcon = styled(ChevronDownIcon)(() => ({
 }));
 
 const HeroButton = ({ label }: HeroButtonProps) => {
-  return <AnimatedButton icon={<DownIcon />} label={label} iconStart />;
+  const handleScrollDown = () => {
+    window.scrollBy({ top: window.innerHeight * 0.8, behavior: "smooth" });
+  };
+
+  return (
+    <AnimatedButton
+      iconStart
+      icon={<DownIcon />}
+      label={label}
+      onClick={handleScrollDown}
+    />
+  );
 };
 
 export default HeroButton;

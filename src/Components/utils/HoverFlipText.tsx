@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Typography } from "@mui/material";
+import { Typography, useTheme } from "@mui/material";
 
 import classes from "./styles.module.scss";
 
@@ -8,6 +8,8 @@ interface HoverFlipTextprops {
 }
 
 const HoverFlipText = ({ label }: HoverFlipTextprops) => {
+  const theme = useTheme();
+
   return (
     <motion.div
       style={{
@@ -36,7 +38,7 @@ const HoverFlipText = ({ label }: HoverFlipTextprops) => {
         style={{
           position: "absolute",
           top: 0,
-          color: "#a8d08d",
+          color: theme.palette.secondary.main,
         }}
         variants={{
           initial: { y: "100%" },

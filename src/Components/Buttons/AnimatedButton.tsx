@@ -8,6 +8,7 @@ interface AnimatedButtonProps {
   icon?: ReactNode;
   label?: string;
   iconStart?: boolean;
+  onClick?: () => void;
 }
 
 const StyledFillerPill = styled("div")(() => ({
@@ -19,7 +20,12 @@ const StyledFillerPill = styled("div")(() => ({
   backgroundColor: "#A8D08D",
 }));
 
-const AnimatedButton = ({ icon, iconStart, label }: AnimatedButtonProps) => {
+const AnimatedButton = ({
+  icon,
+  iconStart,
+  label,
+  onClick,
+}: AnimatedButtonProps) => {
   const circle = useRef(null);
   const textRef = useRef<HTMLDivElement | null>(null);
   const timeline = useRef<gsap.core.Timeline | null>(null);
@@ -50,6 +56,7 @@ const AnimatedButton = ({ icon, iconStart, label }: AnimatedButtonProps) => {
       className={classes.button}
       onMouseEnter={manageMouseEnter}
       onMouseLeave={manageMouseLeave}
+      onClick={onClick}
     >
       <StyledFillerPill ref={circle} />
       {iconStart && icon}

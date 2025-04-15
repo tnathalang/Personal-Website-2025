@@ -1,5 +1,6 @@
 .introSectionContainer {
-  background: #f7f6f3;
+  background: var(--color-main);
+  color: var(--color-text);
   z-index: 1;
   padding-bottom: 120px;
   padding-top: 50px;
