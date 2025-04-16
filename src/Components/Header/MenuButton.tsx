@@ -3,7 +3,7 @@ import { ReactNode } from "react";
 
 import classes from "./styles.module.scss";
 import { Typography, useMediaQuery } from "@mui/material";
-import { getMenuVariant } from "./animationVariant";
+import { getMenuVariant, getTransition } from "./animationVariant";
 
 interface MenuButtonProps {
   children: ReactNode;
@@ -12,6 +12,11 @@ interface MenuButtonProps {
 }
 
 const MotionTypography = motion(Typography);
+
+const getSpring = (isActive: boolean) =>
+  isActive
+    ? { duration: 0.75, ease: [0.76, 0, 0.24, 1] }
+    : { duration: 0.4, delay: 0.6, ease: "easeOut" };
 
 function MenuButton({ children, isActive, setIsActive }: MenuButtonProps) {
   const isMobile = useMediaQuery("(max-width: 768px)");
@@ -26,25 +31,28 @@ function MenuButton({ children, isActive, setIsActive }: MenuButtonProps) {
     >
       <div className={classes.expandableButton}>
         <MotionTypography
+          initial={false}
           animate={{
             marginLeft: isActive ? 40 : 0,
+            marginTop: isActive ? 10 : 0,
             fontSize: isActive ? "2rem" : "1.25rem",
           }}
-          transition={{
-            marginLeft: isActive
-              ? { duration: 0.75, ease: [0.76, 0, 0.24, 1] }
-              : { duration: 0.2, delay: 0.7, ease: "easeOut" },
-            fontSize: isActive
-              ? { duration: 0.75, ease: [0.76, 0, 0.24, 1] }
-              : { duration: 0.4, delay: 0.6, ease: "easeOut" },
-          }}
+          transition={getTransition(isActive)}
         >
-          Menu
+          MENU
         </MotionTypography>
-        <div
+        <motion.div
           className={`${classes.burger} ${
             isActive ? classes.burgerActive : ""
           }`}
+          animate={{
+            marginTop: isActive ? 10 : 0,
+            marginRight: isActive ? 16 : 0,
+          }}
+          transition={{
+            marginTop: getSpring(isActive),
+            marginRight: getSpring(isActive),
+          }}
         />
       </div>
       {children}

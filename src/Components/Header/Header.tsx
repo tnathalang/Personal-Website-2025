@@ -6,22 +6,15 @@ import { Typography } from "@mui/material";
 import MenuContent from "./MenuContent";
 import MenuButton from "./MenuButton";
 
-interface HeaderProps {
-  handleMouseEnter: () => void;
-  handleMouseLeave: () => void;
-}
+interface HeaderProps {}
 
-function Header({ handleMouseEnter, handleMouseLeave }: HeaderProps) {
+function Header(_props: HeaderProps) {
   const [isActive, setIsActive] = useState(false);
 
   return (
     <div className={classes.header}>
       <Typography>Akira Na Thalang - Developer</Typography>
-      <div
-        className={classes.menuWrapper}
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
-      >
+      <div>
         <MenuButton isActive={isActive} setIsActive={setIsActive}>
           <AnimatePresence>{isActive && <MenuContent />}</AnimatePresence>
         </MenuButton>

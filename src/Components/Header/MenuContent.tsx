@@ -1,6 +1,8 @@
 import classes from "./styles.module.scss";
 import { motion } from "framer-motion";
 import { Typography } from "@mui/material";
+import MenuContentTitles from "./MenuContentTitles";
+import { useState } from "react";
 
 interface MenuContentProps {}
 
@@ -47,41 +49,39 @@ const bodyVariant = {
 };
 
 const MenuContent = (_props: MenuContentProps) => {
+  const [hovered, setHovered] = useState({ isActive: false, index: 0 });
+
   return (
-    <>
-      <div className={classes.menuContent}>
-        <div className={classes.body}>
-          <div className={classes.links}>
-            {links.map((link, index) => {
-              const { title, href } = link;
+    <div className={classes.menuContent}>
+      <div className={classes.body}>
+        <div className={classes.links}>
+          {links.map((link, index) => (
+            <motion.div
+              custom={index}
+              variants={bodyVariant}
+              initial="initial"
+              animate="enter"
+              exit="exit"
+            >
+              <MenuContentTitles
+                key={index}
+                index={index}
+                hovered={hovered}
+                setHovered={setHovered}
+                {...link}
+              />
+            </motion.div>
+          ))}
+        </div>
 
-              return (
-                <div key={index}>
-                  <motion.div
-                    custom={index}
-                    variants={bodyVariant}
-                    initial="initial"
-                    animate="enter"
-                    exit="exit"
-                  >
-                    <Typography component={"a"} href={href} variant="h3">
-                      {title}
-                    </Typography>
-                  </motion.div>
-                </div>
-              );
-            })}
-          </div>
-
-          <div className={classes.menuContentFooter}>
-            <Typography>LinkedIn</Typography>
-            <Typography>GitHub</Typography>
-            <Typography>Instagram</Typography>
-            <Typography>Contact</Typography>
-          </div>
+        <div className={classes.menuContentFooter}>
+          <Typography>LinkedIn</Typography>
+          <Typography>GitHub</Typography>
+          <Typography>Instagram</Typography>
+          <Typography>Contact</Typography>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
