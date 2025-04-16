@@ -1,5 +1,4 @@
-import { motion, MotionValue, useTransform } from "framer-motion";
-import Content from "./FooterContent";
+import { MotionValue, useTransform } from "framer-motion";
 
 import classes from "./styles.module.scss";
 import { Typography } from "@mui/material";

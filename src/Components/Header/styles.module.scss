@@ -12,6 +12,11 @@
   position: relative;
   z-index: 1;
   cursor: none;
+
+  @media (max-width: 768px) {
+    padding-top: 20px;
+    padding-left: 10px;
+  }
 }
 
 .menu {

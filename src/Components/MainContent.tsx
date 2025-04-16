@@ -6,7 +6,7 @@ import Cursor from "./Cursor/Cursor";
 
 import classes from "../main.module.scss";
 import InnerPageContent from "./InnerPageContent";
-import Header from "./Header/Header";
+import { Header } from "./Header/Header";
 
 const MainContent = () => {
   const mainContentRef = useRef(null);
@@ -22,7 +22,7 @@ const MainContent = () => {
   const handleMouseEnter = (variant: string) => () => setCursorVariant(variant);
 
   return (
-    <>
+    <div>
       <Header />
 
       <div className={classes.appContainer} ref={mainContentRef}>
@@ -37,7 +37,7 @@ const MainContent = () => {
           onMouseEnter={handleMouseEnter("secondary")}
         />
       </div>
-    </>
+    </div>
   );
 };
 
