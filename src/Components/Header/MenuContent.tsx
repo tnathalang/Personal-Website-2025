@@ -1,5 +1,3 @@
-import React from "react";
-
 import classes from "./styles.module.scss";
 import { motion } from "framer-motion";
 import { Typography } from "@mui/material";
@@ -50,29 +48,39 @@ const perspective = {
 
 const MenuContent = (_props: MenuContentProps) => {
   return (
-    <div className={classes.nav}>
-      <div className={classes.body}>
-        {links.map((link, index) => {
-          const { title, href } = link;
-
-          return (
-            <div key={index} className={classes.linkContainer}>
-              <motion.div
-                custom={index}
-                variants={perspective}
-                initial="initial"
-                animate="enter"
-                exit="exit"
-              >
-                <Typography component={"a"} href={href}>
-                  {title}
-                </Typography>
-              </motion.div>
-            </div>
-          );
-        })}
+    <>
+      <div
+        style={{
+          position: "relative",
+          padding: "10px 0px 0px 40px",
+        }}
+      >
+        <Typography>MENU</Typography>
       </div>
-    </div>
+      <div className={classes.nav}>
+        <div className={classes.body}>
+          {links.map((link, index) => {
+            const { title, href } = link;
+
+            return (
+              <div key={index} className={classes.linkContainer}>
+                <motion.div
+                  custom={index}
+                  variants={perspective}
+                  initial="initial"
+                  animate="enter"
+                  exit="exit"
+                >
+                  <Typography component={"a"} href={href}>
+                    {title}
+                  </Typography>
+                </motion.div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </>
   );
 };
 

@@ -15,9 +15,9 @@ const cursorVariants = {
   hover: {
     scale: 0,
   },
-  footer: {
+  secondary: {
     scale: 1,
-    backgroundColor: "white",
+    backgroundColor: "#ebe9e4",
   },
 };
 

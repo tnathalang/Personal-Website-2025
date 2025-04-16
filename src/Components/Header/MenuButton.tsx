@@ -1,7 +1,4 @@
-import { motion } from "framer-motion";
-
 import classes from "./styles.module.scss";
-import { Typography } from "@mui/material";
 
 interface MenuButtonProps {
   isActive: boolean;
@@ -10,15 +7,16 @@ interface MenuButtonProps {
 
 interface TextType {
   label: string;
+  isActive: boolean;
 }
 
 export default function MenuButton({ isActive, toggleMenu }: MenuButtonProps) {
   return (
     <div className={classes.button}>
-      <motion.div
+      <div
         className={classes.slider}
-        animate={{ top: isActive ? "-100%" : "0%" }}
-        transition={{ duration: 0.5, type: "tween", ease: [0.76, 0, 0.24, 1] }}
+        // animate={{ top: isActive ? "-100%" : "0%" }}
+        // transition={{ duration: 0.5, type: "tween", ease: [0.76, 0, 0.24, 1] }}
       >
         <div
           className={classes.el}
@@ -26,7 +24,7 @@ export default function MenuButton({ isActive, toggleMenu }: MenuButtonProps) {
             toggleMenu();
           }}
         >
-          <PerspectiveText label="Menu" />
+          <PerspectiveText label="Menu" isActive={isActive} />
         </div>
 
         <div
@@ -35,19 +33,22 @@ export default function MenuButton({ isActive, toggleMenu }: MenuButtonProps) {
             toggleMenu();
           }}
         >
-          <PerspectiveText label="Close" />
+          <PerspectiveText label="Close" isActive={isActive} />
         </div>
-      </motion.div>
+      </div>
     </div>
   );
 }
 
-function PerspectiveText({ label }: TextType) {
+function PerspectiveText({ label, isActive }: TextType) {
   return (
     <div className={classes.perspectiveText}>
-      <Typography>{label}</Typography>
+      <div
+        className={`${classes.burger} ${isActive ? classes.burgerActive : ""}`}
+      />
+      {/* <Typography>{label}</Typography>
 
-      <Typography>{label}</Typography>
+      <Typography>{label}</Typography> */}
     </div>
   );
 }

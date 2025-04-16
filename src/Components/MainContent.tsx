@@ -24,13 +24,13 @@ const MainContent = () => {
     <div className={classes.appContainer} ref={mainContentRef}>
       <Cursor cursorVariant={cursorVariant} />
       <InnerPageContent
-        handleMouseEnter={handleMouseEnter("hover")}
+        handleMouseEnter={handleMouseEnter("secondary")}
         handleMouseLeave={handleMouseLeave}
       />
       <Footer
         scrollProgress={scrollYProgress}
         onMouseLeave={handleMouseLeave}
-        onMouseEnter={handleMouseEnter("footer")}
+        onMouseEnter={handleMouseEnter("secondary")}
       />
     </div>
   );

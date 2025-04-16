@@ -55,8 +55,7 @@
 .button {
   z-index: 2;
   width: 100px;
-  height: 40px;
-  cursor: none;
+  height: 45px;
   border-radius: 25px;
   overflow: hidden;
   position: relative;
@@ -73,9 +72,9 @@
         margin: 0px;
       }
       &:nth-of-type(2) {
-        background-color: black;
+        background-color: var(--color-accent);
         p {
-          color: var(--color-accent);
+          color: var(--color-text);
         }
       }
 
@@ -105,8 +104,8 @@
   align-items: center;
   height: 100%;
   width: 100%;
-  transform-style: preserve-3d;
-  transition: transform 0.75s cubic-bezier(0.76, 0, 0.24, 1);
+  // transform-style: preserve-3d;
+  // transition: transform 0.75s cubic-bezier(0.76, 0, 0.24, 1);
 
   p {
     transition: all 0.75s cubic-bezier(0.76, 0, 0.24, 1);
@@ -119,4 +118,49 @@
       opacity: 0;
     }
   }
+}
+
+.burger {
+  width: 22.5px;
+
+  position: relative;
+
+  pointer-events: none;
+}
+
+.burger::after,
+.burger::before {
+  content: "";
+
+  height: 1px;
+
+  width: 100%;
+
+  background-color: black;
+
+  position: relative;
+
+  display: block;
+
+  transition: all 1s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+.burger::after {
+  top: -4px;
+}
+
+.burger::before {
+  top: 4px;
+}
+
+.burgerActive::after {
+  transform: rotate(45deg);
+
+  top: -1px;
+}
+
+.burgerActive::before {
+  transform: rotate(-45deg);
+
+  top: 1px;
 }
