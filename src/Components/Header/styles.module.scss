@@ -1,24 +1,22 @@
-.header {
-  background-color: var(--color-main);
-  color: var(--color-text);
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  position: fixed;
-  width: 100%;
-  box-sizing: border-box;
-  padding: 10px;
-  z-index: 9999;
-}
-
-.menuWrapper {
+.headerWrapper {
   position: relative;
   display: inline-block;
+  cursor: pointer;
+  background-color: var(--color-main);
+  width: 100%;
+}
+
+.headerText {
+  padding-top: 30px;
+  padding-left: 60px;
+  position: relative;
+  z-index: 1;
+  cursor: none;
 }
 
 .menu {
   z-index: 500;
-  position: absolute;
+  position: fixed;
   top: 100%;
   overflow: hidden;
   background-color: var(--color-secondary);

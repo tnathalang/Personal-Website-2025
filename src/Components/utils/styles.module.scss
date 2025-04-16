@@ -18,3 +18,13 @@
   vertical-align: text-bottom;
   background-color: var(--color-accent);
 }
+
+.underline {
+  position: absolute;
+  height: 3px;
+  width: 100%;
+  background: var(--color-accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  z-index: 1;
+}

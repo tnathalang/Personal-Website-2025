@@ -23,10 +23,7 @@ const MainContent = () => {
 
   return (
     <>
-      <Header
-        handleMouseEnter={handleMouseEnter("menu")}
-        handleMouseLeave={handleMouseLeave}
-      />
+      <Header />
 
       <div className={classes.appContainer} ref={mainContentRef}>
         <Cursor cursorVariant={cursorVariant} />

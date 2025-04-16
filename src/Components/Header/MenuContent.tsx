@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { Typography } from "@mui/material";
 import MenuContentTitles from "./MenuContentTitles";
 import { useState } from "react";
+import UnderlineWrapper from "../utils/UnderlineWrapper";
 
 interface MenuContentProps {}
 
@@ -17,6 +18,25 @@ const links = [
   },
   {
     title: "Resume",
+    href: "/",
+  },
+];
+
+const footerLinks = [
+  {
+    name: "LinkedIn",
+    href: "/",
+  },
+  {
+    name: "Github",
+    href: "/",
+  },
+  {
+    name: "Instagram",
+    href: "/",
+  },
+  {
+    name: "Contact",
     href: "/",
   },
 ];
@@ -75,10 +95,15 @@ const MenuContent = (_props: MenuContentProps) => {
         </div>
 
         <div className={classes.menuContentFooter}>
-          <Typography>LinkedIn</Typography>
-          <Typography>GitHub</Typography>
-          <Typography>Instagram</Typography>
-          <Typography>Contact</Typography>
+          {footerLinks.map(({ href, name }, index) => (
+            <div>
+              <UnderlineWrapper>
+                <Typography key={index} component={"a"} href={href}>
+                  {name}
+                </Typography>
+              </UnderlineWrapper>
+            </div>
+          ))}
         </div>
       </div>
     </div>
