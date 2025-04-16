@@ -6,6 +6,11 @@ import MenuButton from "./MenuButton";
 import { Typography } from "@mui/material";
 import MenuContent from "./MenuContent";
 
+interface HeaderProps {
+  handleMouseEnter: () => void;
+  handleMouseLeave: () => void;
+}
+
 const menu = {
   open: {
     width: "480px",
@@ -16,8 +21,8 @@ const menu = {
   },
 
   closed: {
-    width: "100px",
-    height: "40px",
+    width: "150px",
+    height: "45px",
     top: 0,
     right: 0,
     transition: {
@@ -29,13 +34,17 @@ const menu = {
   },
 };
 
-function Header() {
+function Header({ handleMouseEnter, handleMouseLeave }: HeaderProps) {
   const [isActive, setIsActive] = useState(false);
 
   return (
     <div className={classes.header}>
       <Typography>Akira Na Thalang - Developer</Typography>
-      <div className={classes.menuWrapper}>
+      <div
+        className={classes.menuWrapper}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+      >
         <MenuButton
           isActive={isActive}
           toggleMenu={() => {

@@ -6,6 +6,7 @@ import Cursor from "./Cursor/Cursor";
 
 import classes from "../main.module.scss";
 import InnerPageContent from "./InnerPageContent";
+import Header from "./Header/Header";
 
 const MainContent = () => {
   const mainContentRef = useRef(null);
@@ -21,18 +22,25 @@ const MainContent = () => {
   const handleMouseEnter = (variant: string) => () => setCursorVariant(variant);
 
   return (
-    <div className={classes.appContainer} ref={mainContentRef}>
-      <Cursor cursorVariant={cursorVariant} />
-      <InnerPageContent
-        handleMouseEnter={handleMouseEnter("secondary")}
+    <>
+      <Header
+        handleMouseEnter={handleMouseEnter("menu")}
         handleMouseLeave={handleMouseLeave}
       />
-      <Footer
-        scrollProgress={scrollYProgress}
-        onMouseLeave={handleMouseLeave}
-        onMouseEnter={handleMouseEnter("secondary")}
-      />
-    </div>
+
+      <div className={classes.appContainer} ref={mainContentRef}>
+        <Cursor cursorVariant={cursorVariant} />
+        <InnerPageContent
+          handleMouseEnter={handleMouseEnter("secondary")}
+          handleMouseLeave={handleMouseLeave}
+        />
+        <Footer
+          scrollProgress={scrollYProgress}
+          onMouseLeave={handleMouseLeave}
+          onMouseEnter={handleMouseEnter("secondary")}
+        />
+      </div>
+    </>
   );
 };
 

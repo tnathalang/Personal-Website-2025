@@ -1,7 +1,6 @@
 import Lenis from "lenis";
 import { useEffect } from "react";
 import MainContent from "./MainContent";
-import Header from "./Header/Header";
 import { BrowserRouter as Router } from "react-router-dom";
 
 const Home = () => {
@@ -19,7 +18,6 @@ const Home = () => {
 
   return (
     <Router>
-      <Header />
       <MainContent />
     </Router>
   );

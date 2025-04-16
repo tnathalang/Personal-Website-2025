@@ -1,6 +1,7 @@
 import classes from "./styles.module.scss";
 import { motion } from "framer-motion";
 import { Typography } from "@mui/material";
+import theme from "../../theme";
 
 interface MenuContentProps {}
 
@@ -24,7 +25,7 @@ const perspective = {
     opacity: 0,
     rotateX: 90,
     translateY: 80,
-    translateX: -20,
+    translateX: -70,
   },
 
   enter: (i: number) => ({
@@ -53,6 +54,7 @@ const MenuContent = (_props: MenuContentProps) => {
         style={{
           position: "relative",
           padding: "10px 0px 0px 40px",
+          color: theme.palette.primary.main,
         }}
       >
         <Typography>MENU</Typography>

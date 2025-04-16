@@ -12,7 +12,8 @@ const cursorVariants = {
     opacity: 1,
     scale: 1,
   },
-  hover: {
+  menu: {
+    opacity: 0,
     scale: 0,
   },
   secondary: {
