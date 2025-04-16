@@ -2,7 +2,8 @@ import { motion } from "framer-motion";
 import { ReactNode } from "react";
 
 import classes from "./styles.module.scss";
-import { Typography } from "@mui/material";
+import { Typography, useMediaQuery } from "@mui/material";
+import { getMenuVariant } from "./animationVariant";
 
 interface MenuButtonProps {
   children: ReactNode;
@@ -11,34 +12,14 @@ interface MenuButtonProps {
 }
 
 const MotionTypography = motion(Typography);
-const menu = {
-  open: {
-    width: "480px",
-    height: "650px",
-    top: 0,
-    right: 0,
-    transition: { duration: 0.75, type: "tween", ease: [0.76, 0, 0.24, 1] },
-  },
-
-  closed: {
-    width: "120px",
-    height: "40px",
-    top: 0,
-    right: 0,
-    transition: {
-      duration: 0.75,
-      delay: 0.35,
-      type: "tween",
-      ease: [0.76, 0, 0.24, 1],
-    },
-  },
-};
 
 function MenuButton({ children, isActive, setIsActive }: MenuButtonProps) {
+  const isMobile = useMediaQuery("(max-width: 768px)");
+
   return (
     <motion.div
       className={classes.menu}
-      variants={menu}
+      variants={getMenuVariant(isMobile)}
       animate={isActive ? "open" : "closed"}
       initial="closed"
       onClick={() => setIsActive(!isActive)}

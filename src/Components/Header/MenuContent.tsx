@@ -19,7 +19,7 @@ const links = [
   },
 ];
 
-const perspective = {
+const bodyVariant = {
   initial: {
     opacity: 0,
     rotateX: 90,
@@ -49,34 +49,36 @@ const perspective = {
 const MenuContent = (_props: MenuContentProps) => {
   return (
     <>
-      <div className={classes.nav}>
+      <div className={classes.menuContent}>
         <div className={classes.body}>
-          {links.map((link, index) => {
-            const { title, href } = link;
+          <div className={classes.links}>
+            {links.map((link, index) => {
+              const { title, href } = link;
 
-            return (
-              <div key={index} className={classes.linkContainer}>
-                <motion.div
-                  custom={index}
-                  variants={perspective}
-                  initial="initial"
-                  animate="enter"
-                  exit="exit"
-                >
-                  <Typography component={"a"} href={href}>
-                    {title}
-                  </Typography>
-                </motion.div>
-              </div>
-            );
-          })}
-        </div>
+              return (
+                <div key={index}>
+                  <motion.div
+                    custom={index}
+                    variants={bodyVariant}
+                    initial="initial"
+                    animate="enter"
+                    exit="exit"
+                  >
+                    <Typography component={"a"} href={href} variant="h3">
+                      {title}
+                    </Typography>
+                  </motion.div>
+                </div>
+              );
+            })}
+          </div>
 
-        <div className={classes.menuContentFooter}>
-          <Typography>LinkedIn</Typography>
-          <Typography>GitHub</Typography>
-          <Typography>Instagram</Typography>
-          <Typography>Contact</Typography>
+          <div className={classes.menuContentFooter}>
+            <Typography>LinkedIn</Typography>
+            <Typography>GitHub</Typography>
+            <Typography>Instagram</Typography>
+            <Typography>Contact</Typography>
+          </div>
         </div>
       </div>
     </>

@@ -73,27 +73,27 @@
   }
 }
 
-.nav {
+.menuContent {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 100px 40px 100px 40px;
-  height: 100%;
-  box-sizing: border-box;
+  padding: 20px 40px;
+  height: 90%;
 
   .body {
+    height: 100%;
     display: flex;
-    gap: 10px;
     flex-direction: column;
-    .linkContainer {
-      perspective: 120px;
-      perspective-origin: bottom;
-    }
+    justify-content: space-between;
+
     a {
       text-decoration: none;
       color: var(--color-main);
-      font-size: 46px;
     }
+  }
+
+  .links {
+    padding-top: 100px;
   }
 
   .menuContentFooter {
@@ -101,5 +101,11 @@
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 12px 24px;
     color: var(--color-main);
+  }
+
+  @media (max-width: 768px) {
+    .links {
+      margin-top: 100px;
+    }
   }
 }
