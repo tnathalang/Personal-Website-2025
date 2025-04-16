@@ -43,7 +43,16 @@ function MenuButton({ children, isActive, setIsActive }: MenuButtonProps) {
       onClick={() => setIsActive(!isActive)}
     >
       <div className={classes.expandableButton}>
-        <Typography>Menu</Typography>
+        <motion.div
+          animate={{ marginLeft: isActive ? 40 : 0 }}
+          transition={
+            isActive
+              ? { duration: 0.75, ease: [0.76, 0, 0.24, 1] }
+              : { duration: 0.2, delay: 0.7, ease: "easeOut" }
+          }
+        >
+          <Typography>Menu</Typography>
+        </motion.div>
         <div
           className={`${classes.burger} ${
             isActive ? classes.burgerActive : ""

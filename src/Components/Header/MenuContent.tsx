@@ -71,6 +71,8 @@ const MenuContent = (_props: MenuContentProps) => {
             );
           })}
         </div>
+
+        <Typography>Footer</Typography>
       </div>
     </>
   );
