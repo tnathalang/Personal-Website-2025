@@ -1,9 +1,9 @@
 import { gsap } from "gsap";
 
-export function createMyTimeline(
+export const gsapTimeLine = (
   circle: HTMLElement,
   letters: NodeListOf<HTMLElement>
-) {
+) => {
   const tl = gsap.timeline({ paused: true });
 
   tl.to(
@@ -49,4 +49,4 @@ export function createMyTimeline(
     );
 
   return tl;
-}
+};

@@ -18,7 +18,7 @@ const getSpring = (isActive: boolean) =>
     ? { duration: 0.75, ease: [0.76, 0, 0.24, 1] }
     : { duration: 0.4, delay: 0.6, ease: "easeOut" };
 
-function MenuButton({ children, isActive, setIsActive }: MenuButtonProps) {
+const MenuButton = ({ children, isActive, setIsActive }: MenuButtonProps) => {
   const isMobile = useMediaQuery("(max-width: 768px)");
 
   return (
@@ -58,6 +58,6 @@ function MenuButton({ children, isActive, setIsActive }: MenuButtonProps) {
       {children}
     </motion.div>
   );
-}
+};
 
 export default MenuButton;

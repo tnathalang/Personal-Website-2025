@@ -1,7 +1,7 @@
 import { ReactNode, useEffect, useRef } from "react";
 import { Box } from "../Shared";
 import { styled, Typography } from "@mui/material";
-import { createMyTimeline } from "./animation";
+import { gsapTimeLine } from "./animation";
 import classes from "./styles.module.scss";
 
 interface AnimatedButtonProps {
@@ -34,7 +34,7 @@ const AnimatedButton = ({
   useEffect(() => {
     const letters = textRef.current!.querySelectorAll("span");
     const circleEl = circle.current!;
-    timeline.current = createMyTimeline(circleEl, letters);
+    timeline.current = gsapTimeLine(circleEl, letters);
   }, []);
 
   const manageMouseEnter = () => {

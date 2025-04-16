@@ -1,7 +1,7 @@
 import { Typography } from "@mui/material";
 import classes from "./styles.module.scss";
 
-export default function Content() {
+export const Content = () => {
   return (
     <div className={classes.section2}>
       <div className={classes.section2Headings}>
@@ -13,4 +13,4 @@ export default function Content() {
       </Typography>
     </div>
   );
-}
+};

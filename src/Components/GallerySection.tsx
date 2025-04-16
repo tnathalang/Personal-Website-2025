@@ -30,7 +30,7 @@ const useStyles = () => ({
   },
 });
 
-export default function GallerySection(props: GallerySectionProps) {
+export const GallerySection = (props: GallerySectionProps) => {
   const { sectionRef, sectionInView, staggerDirection } = props;
   const classes = useStyles();
 
@@ -68,4 +68,4 @@ export default function GallerySection(props: GallerySectionProps) {
       ></Box>
     </Box>
   );
-}
+};

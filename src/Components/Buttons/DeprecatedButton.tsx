@@ -1,6 +1,6 @@
 import { Box, styled } from "@mui/material";
 import { motion, useAnimate } from "framer-motion";
-import { ReactNode, useEffect, useRef } from "react";
+import { ReactNode, useRef } from "react";
 
 interface ButtonProps {
   children: ReactNode;

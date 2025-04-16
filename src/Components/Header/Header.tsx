@@ -10,7 +10,7 @@ import UnderlineWrapper from "../utils/UnderlineWrapper";
 
 interface HeaderProps {}
 
-function Header(_props: HeaderProps) {
+export const Header = (_props: HeaderProps) => {
   const [isActive, setIsActive] = useState(false);
 
   return (
@@ -25,6 +25,4 @@ function Header(_props: HeaderProps) {
       </MenuButton>
     </div>
   );
-}
-
-export default Header;
+};
