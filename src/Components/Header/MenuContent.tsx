@@ -72,7 +72,12 @@ const MenuContent = (_props: MenuContentProps) => {
           })}
         </div>
 
-        <Typography>Footer</Typography>
+        <div className={classes.menuContentFooter}>
+          <Typography>LinkedIn</Typography>
+          <Typography>GitHub</Typography>
+          <Typography>Instagram</Typography>
+          <Typography>Contact</Typography>
+        </div>
       </div>
     </>
   );

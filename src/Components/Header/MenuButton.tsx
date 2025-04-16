@@ -10,6 +10,7 @@ interface MenuButtonProps {
   setIsActive: (active: boolean) => void;
 }
 
+const MotionTypography = motion(Typography);
 const menu = {
   open: {
     width: "480px",
@@ -43,16 +44,22 @@ function MenuButton({ children, isActive, setIsActive }: MenuButtonProps) {
       onClick={() => setIsActive(!isActive)}
     >
       <div className={classes.expandableButton}>
-        <motion.div
-          animate={{ marginLeft: isActive ? 40 : 0 }}
-          transition={
-            isActive
+        <MotionTypography
+          animate={{
+            marginLeft: isActive ? 40 : 0,
+            fontSize: isActive ? "2rem" : "1.25rem",
+          }}
+          transition={{
+            marginLeft: isActive
               ? { duration: 0.75, ease: [0.76, 0, 0.24, 1] }
-              : { duration: 0.2, delay: 0.7, ease: "easeOut" }
-          }
+              : { duration: 0.2, delay: 0.7, ease: "easeOut" },
+            fontSize: isActive
+              ? { duration: 0.75, ease: [0.76, 0, 0.24, 1] }
+              : { duration: 0.4, delay: 0.6, ease: "easeOut" },
+          }}
         >
-          <Typography>Menu</Typography>
-        </motion.div>
+          Menu
+        </MotionTypography>
         <div
           className={`${classes.burger} ${
             isActive ? classes.burgerActive : ""
