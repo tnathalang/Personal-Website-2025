@@ -1,61 +1,58 @@
-import { Typography } from "@mui/material";
+import { motion } from "framer-motion";
+import { ReactNode } from "react";
+
 import classes from "./styles.module.scss";
+import { Typography } from "@mui/material";
 
 interface MenuButtonProps {
+  children: ReactNode;
   isActive: boolean;
-  toggleMenu: () => void;
+  setIsActive: (active: boolean) => void;
 }
 
-interface TextType {
-  label: string;
-  isActive: boolean;
-}
+const menu = {
+  open: {
+    width: "480px",
+    height: "650px",
+    top: 0,
+    right: 0,
+    transition: { duration: 0.75, type: "tween", ease: [0.76, 0, 0.24, 1] },
+  },
 
-export default function MenuButton({ isActive, toggleMenu }: MenuButtonProps) {
+  closed: {
+    width: "120px",
+    height: "40px",
+    top: 0,
+    right: 0,
+    transition: {
+      duration: 0.75,
+      delay: 0.35,
+      type: "tween",
+      ease: [0.76, 0, 0.24, 1],
+    },
+  },
+};
+
+function MenuButton({ children, isActive, setIsActive }: MenuButtonProps) {
   return (
-    <div className={classes.button}>
-      <div className={classes.slider}>
-        <div
-          className={classes.el}
-          onClick={() => {
-            toggleMenu();
-          }}
-        >
-          <PerspectiveText label="Menu" isActive={isActive} />
-        </div>
-
-        <div
-          className={classes.el}
-          onClick={() => {
-            toggleMenu();
-          }}
-        >
-          <PerspectiveText label="Close" isActive={isActive} />
-        </div>
-      </div>
-    </div>
-  );
-}
-
-function PerspectiveText({ label, isActive }: TextType) {
-  return (
-    <div className={classes.perspectiveText}>
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-around",
-          width: "100%",
-        }}
-      >
-        <Typography>{label}</Typography>
-
+    <motion.div
+      className={classes.menu}
+      variants={menu}
+      animate={isActive ? "open" : "closed"}
+      initial="closed"
+      onClick={() => setIsActive(!isActive)}
+    >
+      <div className={classes.expandableButton}>
+        <Typography>Menu</Typography>
         <div
           className={`${classes.burger} ${
             isActive ? classes.burgerActive : ""
           }`}
         />
       </div>
-    </div>
+      {children}
+    </motion.div>
   );
 }
+
+export default MenuButton;

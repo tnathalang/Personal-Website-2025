@@ -1,7 +1,6 @@
 import classes from "./styles.module.scss";
 import { motion } from "framer-motion";
 import { Typography } from "@mui/material";
-import theme from "../../theme";
 
 interface MenuContentProps {}
 
@@ -50,15 +49,6 @@ const perspective = {
 const MenuContent = (_props: MenuContentProps) => {
   return (
     <>
-      <div
-        style={{
-          position: "relative",
-          padding: "10px 0px 0px 40px",
-          color: theme.palette.primary.main,
-        }}
-      >
-        <Typography>MENU</Typography>
-      </div>
       <div className={classes.nav}>
         <div className={classes.body}>
           {links.map((link, index) => {
