@@ -1,3 +1,4 @@
+import { Typography } from "@mui/material";
 import classes from "./styles.module.scss";
 
 interface MenuButtonProps {
@@ -13,11 +14,7 @@ interface TextType {
 export default function MenuButton({ isActive, toggleMenu }: MenuButtonProps) {
   return (
     <div className={classes.button}>
-      <div
-        className={classes.slider}
-        // animate={{ top: isActive ? "-100%" : "0%" }}
-        // transition={{ duration: 0.5, type: "tween", ease: [0.76, 0, 0.24, 1] }}
-      >
+      <div className={classes.slider}>
         <div
           className={classes.el}
           onClick={() => {
@@ -44,11 +41,21 @@ function PerspectiveText({ label, isActive }: TextType) {
   return (
     <div className={classes.perspectiveText}>
       <div
-        className={`${classes.burger} ${isActive ? classes.burgerActive : ""}`}
-      />
-      {/* <Typography>{label}</Typography>
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-around",
+          width: "100%",
+        }}
+      >
+        <Typography>{label}</Typography>
 
-      <Typography>{label}</Typography> */}
+        <div
+          className={`${classes.burger} ${
+            isActive ? classes.burgerActive : ""
+          }`}
+        />
+      </div>
     </div>
   );
 }

@@ -40,3 +40,27 @@ body,
 ::selection {
   background: #a8d08d;
 }
+
+.colors {
+  --color-primary: #a8d08d; /* matcha */
+  --color-accent: #7a9b60; /* brighter matcha pop */
+  --color-muted: #eae8e1;
+
+  --color-bg: #f5f1e6; /* latte */
+  --color-surface: #e6e2d9; /* slightly darker latte */
+  --color-border: #d3cec4;
+  --color-text: #3e3a36;
+  --color-subtext: #78736c;
+  --color-muted-text: #a59f98;
+
+  --color-success: #8ca984;
+  --color-warning: #d8b36f;
+  --color-error: #c07676;
+  --color-info: #9cb8c3;
+  --color-overlay: rgba(0, 0, 0, 0.4);
+  --color-shadow: rgba(0, 0, 0, 0.08);
+
+  --color-on-primary: #ffffff;
+  --color-on-accent: #ffffff;
+  --color-on-surface: #3e3a36;
+}
