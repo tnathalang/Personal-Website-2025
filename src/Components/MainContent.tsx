@@ -11,6 +11,7 @@ import HeroWrapper from "./HeroSection/HeroSection";
 import HeroSection from "./HeroSection/HeroSection";
 import { Typography } from "@mui/material";
 import IntroSection from "./IntroSection/IntroSection";
+import ToolsCard from "./ToolsSection/ToolsCard";
 
 const TestIntro1 = () => {
   const container = useRef(null);
@@ -199,7 +200,6 @@ const MainContent = () => {
             top: 0,
             marginBottom: "-50vh",
             height: "80vh",
-            background: "#d3e4cd",
             display: "flex",
             justifyContent: "center",
             marginTop: "-20vh",
@@ -210,6 +210,24 @@ const MainContent = () => {
               onMouseLeave={handleMouseLeave}
               onMouseEnter={handleMouseEnter("secondary")}
             />
+          </div>
+        </div>
+        <div style={{ height: "50vh" }} />
+      </div>
+
+      <div style={{ marginBottom: "-50vh", zIndex: 2 }}>
+        <div
+          style={{
+            position: "sticky",
+            top: 0,
+            height: "80vh",
+            display: "flex",
+            justifyContent: "center",
+            marginTop: "-20vh",
+          }}
+        >
+          <div style={{ height: "75vh", width: "100%" }}>
+            <ToolsCard />
           </div>
         </div>
         <div style={{ height: "50vh" }} />
