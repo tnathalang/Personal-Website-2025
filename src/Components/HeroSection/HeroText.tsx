@@ -35,7 +35,7 @@ const HeroText = ({ motionValue, text }: HeroTextProps) => {
   return (
     <motion.div
       className={styles.heroTextContainer}
-      style={{ y: motionValue }}
+      // style={{ y: motionValue }}
       animate="show"
       variants={heroTextContainer}
       initial="hidden"

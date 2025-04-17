@@ -6,9 +6,9 @@ import HeroImage from "./HeroImage";
 
 import styles from "./styles.module.scss";
 
-interface HeroWrapperProps {}
+interface HeroSectionProps {}
 
-const HeroWrapper = (_props: HeroWrapperProps) => {
+const HeroSection = (_props: HeroSectionProps) => {
   const wrapperRef = useRef(null);
   const imageRef = useRef(null);
 
@@ -28,20 +28,18 @@ const HeroWrapper = (_props: HeroWrapperProps) => {
   const containerYMotionValue = useTransform(
     containerScrollYProgress,
     [0, 1],
-    ["0vh", "150vh"]
+    ["0vh", "0vh"]
   );
 
   return (
-    <div style={{ height: "100%" }}>
-      <motion.div
-        className={styles.heroContainer}
-        style={{ y: containerYMotionValue }}
-      >
-        <HeroText text={"Hello - I'm Akira"} motionValue={smoothY} />
-        <HeroImage />
-      </motion.div>
-    </div>
+    <motion.div
+      className={styles.heroContainer}
+      style={{ y: containerYMotionValue }}
+    >
+      <HeroText text={"Hello - I'm Akira"} motionValue={smoothY} />
+      <HeroImage />
+    </motion.div>
   );
 };
 
-export default HeroWrapper;
+export default HeroSection;

@@ -4,6 +4,7 @@
   flex-direction: column;
   align-items: center;
   width: 100%;
+  background-color: var(--color-main);
   // 768px is the most commonly used breakpoints for tablets and below
   @media (max-width: 768px) {
     height: auto;
@@ -19,7 +20,7 @@
   margin-left: 8px;
   margin-right: 8px;
   width: 100%;
-  z-index: 3;
+  z-index: 1;
 
   @media (max-width: 768px) {
     padding: 2rem;
@@ -36,7 +37,6 @@
   position: relative;
   top: -55px;
   max-height: 60vh;
-  overflow: hidden;
 
   @media (max-width: 768px) {
     top: -91px;
