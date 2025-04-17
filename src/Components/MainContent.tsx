@@ -12,6 +12,7 @@ import HeroSection from "./HeroSection/HeroSection";
 import { Typography } from "@mui/material";
 import IntroSection from "./IntroSection/IntroSection";
 import ToolsCard from "./ToolsSection/ToolsCard";
+import Description from "./DescriptionSection/Description";
 
 const TestIntro1 = () => {
   const container = useRef(null);
@@ -184,7 +185,6 @@ const MainContent = () => {
 
   return (
     <>
-      {/* Sticky Hero Section + Pusher */}
       <div style={{ marginBottom: "-50vh", zIndex: 1 }}>
         <div style={{ position: "sticky", top: 0 }}>
           <HeroSection />
@@ -192,20 +192,17 @@ const MainContent = () => {
         <div style={{ height: "50vh" }} />
       </div>
 
-      {/* Sticky Component 1 + Pusher */}
       <div style={{ marginBottom: "-50vh", zIndex: 2 }}>
         <div
           style={{
             position: "sticky",
             top: 0,
-            marginBottom: "-50vh",
-            height: "80vh",
             display: "flex",
             justifyContent: "center",
             marginTop: "-20vh",
           }}
         >
-          <div style={{ height: "400px", width: "100%" }}>
+          <div style={{ width: "100%", marginBottom: "-100px" }}>
             <IntroSection
               onMouseLeave={handleMouseLeave}
               onMouseEnter={handleMouseEnter("secondary")}
@@ -220,41 +217,39 @@ const MainContent = () => {
           style={{
             position: "sticky",
             top: 0,
-            height: "80vh",
+            height: "75vh",
             display: "flex",
             justifyContent: "center",
             marginTop: "-20vh",
           }}
         >
-          <div style={{ height: "75vh", width: "100%" }}>
-            <ToolsCard />
-          </div>
+          <ToolsCard />
         </div>
         <div style={{ height: "50vh" }} />
       </div>
 
-      {/* Non-sticky Component 2 (scrolls normally) */}
       <div
         style={{
-          background: "#adc2a9",
           width: "100%",
           height: "200px",
           zIndex: 3,
           position: "relative",
-          minHeight: "100vh",
+          minHeight: "90vh",
         }}
       >
-        Component 2
+        <Description
+          onMouseLeave={handleMouseLeave}
+          onMouseEnter={handleMouseEnter("secondary")}
+        />
       </div>
 
-      {/* Footer Wrapper */}
-      <div style={{ marginTop: "-100vh" }}>
+      <div style={{ marginTop: "-90vh" }}>
         <div style={{ height: "100vh" }} />
         <div
           style={{
             background: "#78736C",
             width: "100%",
-            height: "800px",
+            height: "700px",
             position: "sticky",
             bottom: 0,
             display: "flex",
