@@ -1,5 +1,5 @@
 import { Typography, styled } from "@mui/material";
-import { useInView } from "framer-motion";
+import { motion, useInView, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { ArrowUpRightIcon } from "@heroicons/react/24/outline";
 
@@ -8,6 +8,7 @@ import AnimatedButton from "../Buttons/AnimatedButton";
 
 import AnimatedText from "../utils/AnimatedText";
 import TypewriterText from "../utils/TypewriterText";
+import { Link } from "react-router-dom";
 
 interface DescriptionProps {
   onMouseEnter: () => void;
@@ -33,29 +34,56 @@ const Description = ({ onMouseEnter, onMouseLeave }: DescriptionProps) => {
   const description = useRef(null);
   const isInView = useInView(description, { amount: 0.5 });
 
-  return (
-    <div className={classes.description} ref={description}>
-      <AnimatedText text="About me" isInView={isInView} variant="subheder" />
+  const { scrollYProgress } = useScroll({
+    target: description,
+    offset: ["start end", "end start"],
+  });
 
-      <div className={classes.body}>
-        <div className={classes.leftSection}>
-          <AnimatedText text={label} isInView={isInView} />
-          <div
-            className={classes.button}
-            onMouseEnter={onMouseEnter}
-            onMouseLeave={onMouseLeave}
-          >
-            <AnimatedButton label="More about me" icon={<ArrowUpIcon />} />
+  const rotate = useTransform(scrollYProgress, [0, 0.5], [5, 0]);
+
+  return (
+    <div ref={description}>
+      <motion.div style={{ rotate }}>
+        <div className={classes.description}>
+          <AnimatedText
+            text="About me"
+            isInView={isInView}
+            variant="subheder"
+          />
+
+          <div className={classes.body}>
+            <div className={classes.leftSection}>
+              <AnimatedText text={label} isInView={isInView} />
+              <div
+                className={classes.button}
+                onMouseEnter={onMouseEnter}
+                onMouseLeave={onMouseLeave}
+              >
+                <Link
+                  to="/about-me"
+                  style={{ textDecoration: "none", color: "inherit" }}
+                >
+                  <AnimatedButton
+                    label="More about me"
+                    icon={<ArrowUpIcon />}
+                  />
+                </Link>
+              </div>
+            </div>
+            <div className={classes.rightSection}>
+              <Typography>Always learning, always refining —</Typography>
+              <Typography className={classes.typewriter}>
+                because&nbsp;
+                <TypewriterText
+                  accented
+                  words={punchLines}
+                  typingSpeed="fast"
+                />
+              </Typography>
+            </div>
           </div>
         </div>
-        <div className={classes.rightSection}>
-          <Typography>Always learning, always refining —</Typography>
-          <Typography className={classes.flip}>
-            because&nbsp;
-            <TypewriterText accented words={punchLines} typingSpeed="fast" />
-          </Typography>
-        </div>
-      </div>
+      </motion.div>
     </div>
   );
 };

@@ -3,7 +3,7 @@
   padding: 180px 88px 140px 88px;
   background-color: black;
   color: var(--color-main);
-  border-radius: 50px;
+  border-radius: 50px 50px 0 0;
 
   @media (max-width: 768px) {
     width: 100%;
@@ -20,6 +20,7 @@
   align-items: flex-start;
   gap: 200px;
   margin-top: 120px;
+  margin-bottom: 120px;
 
   @media (max-width: 768px) {
     flex-direction: column;
@@ -61,7 +62,7 @@
   }
 }
 
-.flip {
+.typewriter {
   display: block;
   width: 100%;
   overflow: visible;
