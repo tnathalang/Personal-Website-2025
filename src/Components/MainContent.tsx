@@ -13,6 +13,7 @@ import { Typography } from "@mui/material";
 import IntroSection from "./IntroSection/IntroSection";
 import ToolsCard from "./ToolsSection/ToolsCard";
 import Description from "./DescriptionSection/Description";
+import theme from "../theme";
 
 const MainContent = () => {
   const mainContentRef = useRef(null);
@@ -75,16 +76,30 @@ const MainContent = () => {
       <div
         style={{
           width: "100%",
-          height: "200px",
           zIndex: 3,
           position: "relative",
-          minHeight: "90vh",
+          height: "100vh",
+          backgroundColor: theme.palette.secondary.main,
         }}
       >
         <Description
           onMouseLeave={handleMouseLeave}
           onMouseEnter={handleMouseEnter("secondary")}
         />
+        <div
+          style={{
+            display: "flex",
+            alignItems: "flex-end",
+            position: "sticky",
+            bottom: 0,
+            marginTop: "25vh",
+            paddingBottom: "2rem",
+            // height: "500px",
+            backgroundColor: theme.palette.secondary.main,
+          }}
+        >
+          <Typography variant="h1">This is a footer</Typography>
+        </div>
       </div>
     </>
   );

@@ -9,6 +9,7 @@
   overflow: hidden;
   width: fit-content;
   background-color: var(--color-main);
+  z-index: 10;
 
   /* subtle depth */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12),
