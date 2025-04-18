@@ -2,10 +2,9 @@
   width: 100%;
   background-color: var(--color-text);
   color: var(--color-main);
-  // height: 100vh;
   border-top-left-radius: 50px;
   border-top-right-radius: 50px;
-  overflow-x: hidden;
+  overflow: hidden;
   padding: 4rem;
 
   @media (max-width: 768px) {
