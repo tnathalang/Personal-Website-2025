@@ -25,19 +25,19 @@ const links = [
 const footerLinks = [
   {
     name: "LinkedIn",
-    href: "/",
+    href: "https://linkedin.com/in/tnathalang",
   },
   {
     name: "Github",
-    href: "/",
+    href: "https://github.com/tnathalang",
   },
   {
     name: "Instagram",
-    href: "/",
+    href: "https://www.instagram.com/itsdrunksushi",
   },
   {
     name: "Contact",
-    href: "/",
+    href: "mailto:atnathalang@gmail.com",
   },
 ];
 
@@ -98,7 +98,13 @@ const MenuContent = (_props: MenuContentProps) => {
           {footerLinks.map(({ href, name }, index) => (
             <div>
               <UnderlineWrapper>
-                <Typography key={index} component={"a"} href={href}>
+                <Typography
+                  key={index}
+                  component={"a"}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   {name}
                 </Typography>
               </UnderlineWrapper>
