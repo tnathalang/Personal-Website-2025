@@ -57,7 +57,7 @@ const MainContent = () => {
         <div style={{ height: "50vh" }} />
       </div>
 
-      <div style={{ marginBottom: "-50vh", zIndex: 2 }}>
+      <div style={{ marginBottom: "-55vh", zIndex: 2 }}>
         <div
           style={{
             position: "sticky",
@@ -73,32 +73,51 @@ const MainContent = () => {
         <div style={{ height: "50vh" }} />
       </div>
 
-      <div
-        style={{
-          width: "100%",
-          zIndex: 3,
-          position: "relative",
-          height: "100vh",
-          backgroundColor: theme.palette.secondary.main,
-        }}
-      >
+      <div>
         <Description
           onMouseLeave={handleMouseLeave}
           onMouseEnter={handleMouseEnter("secondary")}
         />
         <div
           style={{
-            display: "flex",
-            alignItems: "flex-end",
-            position: "sticky",
-            bottom: 0,
-            marginTop: "25vh",
-            paddingBottom: "2rem",
-            // height: "500px",
-            backgroundColor: theme.palette.secondary.main,
+            position: "relative",
+            height: "800px",
+            clipPath: "polygon(0% 0, 100% 0%, 100% 100%, 0 100%)",
           }}
         >
-          <Typography variant="h1">This is a footer</Typography>
+          <div
+            style={{
+              position: "relative",
+              height: "calc(100vh + 800px)",
+              top: "-100vh",
+            }}
+          >
+            <div
+              style={{
+                height: "800px",
+                position: "sticky",
+                top: "calc(100vh - 800px)",
+              }}
+            >
+              <div
+                style={{
+                  backgroundColor: theme.palette.secondary.main,
+                  paddingTop: "2rem",
+                  paddingBottom: "2rem",
+                  paddingLeft: "3rem",
+                  paddingRight: "3rem",
+                  height: "100%",
+                  width: "100%",
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "space-between",
+                }}
+              >
+                <Typography variant="h1">Section 1</Typography>
+                <Typography variant="h1">This is a footer</Typography>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </>

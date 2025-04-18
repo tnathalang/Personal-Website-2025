@@ -3,6 +3,8 @@
   padding: 180px 88px 140px 88px;
   background-color: black;
   color: var(--color-main);
+  height: 100vh;
+  display: flex;
 
   @media (max-width: 768px) {
     width: 100%;
