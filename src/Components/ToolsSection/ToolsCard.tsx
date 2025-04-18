@@ -1,5 +1,5 @@
 import { useRef, useState } from "react";
-import { useInView } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 
 import AnimatedText from "../utils/AnimatedText";
 import HoverFlipText from "../utils/HoverFlipText";
@@ -13,14 +13,21 @@ interface ToolsCardprops extends MouseActions {}
 const labels = ["React", "Typescript", "Ruby on rails", "GraphQL", "Apollo"];
 
 const ToolsCard = ({ onMouseEnter, onMouseLeave }: ToolsCardprops) => {
-  const description = useRef(null);
-  const isInView = useInView(description, { amount: 0.5 });
+  const toolsCard = useRef(null);
+  const isInView = useInView(toolsCard, { amount: 0.5 });
   const [hovered, setHovered] = useState(false);
 
+  // const { scrollYProgress } = useScroll({
+  //   target: toolsCard,
+  //   offset: ["start end", "end start"],
+  // });
+
+  // const rotate = useTransform(scrollYProgress, [0, 0.5], [-5, 0]);
+
   return (
-    <div
+    <motion.div
+      ref={toolsCard}
       className={classes.toolsSection}
-      ref={description}
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
     >
@@ -52,7 +59,7 @@ const ToolsCard = ({ onMouseEnter, onMouseLeave }: ToolsCardprops) => {
           })}
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

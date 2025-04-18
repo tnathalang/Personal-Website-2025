@@ -4,6 +4,7 @@
   background-color: black;
   color: var(--color-main);
   border-radius: 50px 50px 0 0;
+  width: 100%;
 
   @media (max-width: 768px) {
     width: 100%;
@@ -74,4 +75,17 @@
     display: block;
     min-height: 3.5em; // prevent the shifting of the component when text is too long
   }
+}
+
+.descriptionWrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.motionWrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  transform-origin: top center;
 }

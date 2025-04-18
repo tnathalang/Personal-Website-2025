@@ -42,8 +42,8 @@ const Description = ({ onMouseEnter, onMouseLeave }: DescriptionProps) => {
   const rotate = useTransform(scrollYProgress, [0, 0.5], [5, 0]);
 
   return (
-    <div ref={description}>
-      <motion.div style={{ rotate }}>
+    <div ref={description} className={classes.descriptionWrapper}>
+      <motion.div style={{ rotate }} className={classes.motionWrapper}>
         <div className={classes.description}>
           <AnimatedText
             text="About me"
