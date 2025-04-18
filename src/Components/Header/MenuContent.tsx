@@ -18,7 +18,8 @@ const links = [
   },
   {
     title: "Resume",
-    href: "/",
+    href: "https://drive.google.com/file/d/1qK2pmMyTraNiuU7JrvNHtvFMUuhaMljz/view?usp=sharing",
+    external: true,
   },
 ];
 

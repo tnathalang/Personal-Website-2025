@@ -3,6 +3,7 @@ import { Typography } from "@mui/material";
 import { MenuContentTitlesVariants } from "./animationVariant";
 
 interface MenuContentTitlesProps {
+  external?: boolean;
   hovered: { isActive: boolean; index: number | null };
   href: string;
   index: number;
@@ -11,6 +12,7 @@ interface MenuContentTitlesProps {
 }
 
 const MenuContentTitles = ({
+  external = false,
   hovered,
   href,
   index,
@@ -28,7 +30,12 @@ const MenuContentTitles = ({
       variants={MenuContentTitlesVariants}
       animate={shouldBlur ? "blurred" : "clear"}
     >
-      <Typography component={"a"} href={href} variant="h3">
+      <Typography
+        component={"a"}
+        href={href}
+        variant="h3"
+        target={external ? "_blank" : ""}
+      >
         {title}
       </Typography>
     </motion.p>
