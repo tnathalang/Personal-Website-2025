@@ -3,8 +3,7 @@
   padding: 180px 88px 140px 88px;
   background-color: black;
   color: var(--color-main);
-  height: 100vh;
-  display: flex;
+  border-radius: 50px;
 
   @media (max-width: 768px) {
     width: 100%;
@@ -20,7 +19,7 @@
   justify-content: space-between;
   align-items: flex-start;
   gap: 200px;
-  margin-top: 24px;
+  margin-top: 120px;
 
   @media (max-width: 768px) {
     flex-direction: column;

@@ -26,7 +26,7 @@ const ToolsCard = (_props: ToolsCardprops) => {
           />
         </div>
 
-        <div className={classes.titles}>
+        <div className={classes.rightSection}>
           {labels.map((label, index) => {
             return (
               <div className={classes.title} key={index}>

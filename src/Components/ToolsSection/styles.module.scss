@@ -2,21 +2,23 @@
   width: 100%;
   background-color: var(--color-text);
   color: var(--color-main);
-  padding-left: 40px;
-  padding-right: 40px;
+  // height: 100vh;
+  border-top-left-radius: 50px;
+  border-top-right-radius: 50px;
+  overflow-x: hidden;
+  padding: 4rem;
 
   @media (max-width: 768px) {
-    padding: 2rem; // mobile padding
+    padding: 2rem;
   }
 }
 
 .body {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 20px;
-  padding-bottom: 24px;
-  padding-top: 64px;
+  justify-content: space-between;
+  height: 100%;
+  width: 100%;
+  margin-bottom: 60px;
 
   @media (max-width: 768px) {
     flex-direction: column;
@@ -29,15 +31,10 @@
   flex: 1;
   display: flex;
   flex-direction: column;
+  padding-top: 25vh;
 }
 
-.toolsCard {
-  padding: 40px 20px;
-  background-color: var(--color-main);
-  color: var(--color-text);
-}
-
-.titles {
+.rightSection {
   flex: 1;
   border-top: 1px solid rgba(183, 171, 152, 0.25);
 
@@ -74,6 +71,7 @@
   }
 
   @media (max-width: 768px) {
+    flex: 2;
     align-self: normal;
   }
 }

@@ -36,6 +36,7 @@ const Description = ({ onMouseEnter, onMouseLeave }: DescriptionProps) => {
   return (
     <div className={classes.description} ref={description}>
       <AnimatedText text="About me" isInView={isInView} variant="subheder" />
+
       <div className={classes.body}>
         <div className={classes.leftSection}>
           <AnimatedText text={label} isInView={isInView} />
