@@ -34,6 +34,7 @@ const TypewriterText: React.FC<TypewriterTextProps> = ({
 
   return (
     <Typography
+      component={"span"}
       variant={variant}
       color={
         accented ? theme.palette.secondary.main : theme.palette.primary.main

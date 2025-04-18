@@ -13,7 +13,7 @@ interface MenuButtonProps {
   setIsActive: (active: boolean) => void;
 }
 
-const MotionTypography = motion(Typography);
+const MotionTypography = motion.create(Typography);
 
 const getSpring = (isActive: boolean) =>
   isActive

@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { useInView } from "framer-motion";
 
 import AnimatedText from "../utils/AnimatedText";
@@ -15,6 +15,7 @@ const labels = ["React", "Typescript", "Ruby on rails", "GraphQL", "Apollo"];
 const ToolsCard = ({ onMouseEnter, onMouseLeave }: ToolsCardprops) => {
   const description = useRef(null);
   const isInView = useInView(description, { amount: 0.5 });
+  const [hovered, setHovered] = useState(false);
 
   return (
     <div
@@ -35,7 +36,12 @@ const ToolsCard = ({ onMouseEnter, onMouseLeave }: ToolsCardprops) => {
         <div className={classes.rightSection}>
           {labels.map((label, index) => {
             return (
-              <div className={classes.title} key={index}>
+              <div
+                className={classes.title}
+                key={index}
+                onMouseEnter={() => setHovered(true)}
+                onMouseLeave={() => setHovered(!hovered)}
+              >
                 <div className={classes.wrapper}>
                   <MaskTextWrapper isInView={isInView}>
                     <HoverFlipText label={label} />

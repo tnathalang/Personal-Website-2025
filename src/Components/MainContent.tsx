@@ -1,5 +1,4 @@
 import { useRef, useState } from "react";
-import { useScroll } from "framer-motion";
 
 import Footer from "./Footer/Footer";
 
@@ -14,10 +13,6 @@ import Cursor from "./Cursor/Cursor";
 const MainContent = () => {
   const mainContentRef = useRef(null);
   const [cursorVariant, setCursorVariant] = useState("default");
-  const { scrollYProgress } = useScroll({
-    target: mainContentRef,
-    offset: ["start end", "end end"],
-  });
 
   const handleMouseLeave = () => {
     setCursorVariant("default");
@@ -25,7 +20,7 @@ const MainContent = () => {
   const handleMouseEnter = (variant: string) => () => setCursorVariant(variant);
 
   return (
-    <>
+    <div ref={mainContentRef}>
       <Cursor cursorVariant={cursorVariant} />
       <Header
         onMouseLeave={handleMouseLeave}
@@ -62,7 +57,7 @@ const MainContent = () => {
           onMouseEnter={handleMouseEnter("secondary")}
         />
       </div>
-    </>
+    </div>
   );
 };
 

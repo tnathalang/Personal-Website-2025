@@ -12,13 +12,13 @@ const HeroSection = (_props: HeroSectionProps) => {
   const wrapperRef = useRef(null);
   const imageRef = useRef(null);
 
-  const { scrollYProgress: imageScrollYProgress } = useScroll({
-    target: imageRef,
+  const { scrollYProgress: containerScrollYProgress } = useScroll({
+    target: wrapperRef,
     offset: ["start start", "end start"],
   });
 
-  const { scrollYProgress: containerScrollYProgress } = useScroll({
-    target: wrapperRef,
+  const { scrollYProgress: imageScrollYProgress } = useScroll({
+    target: imageRef,
     offset: ["start start", "end start"],
   });
 
@@ -33,11 +33,14 @@ const HeroSection = (_props: HeroSectionProps) => {
 
   return (
     <motion.div
+      ref={wrapperRef}
       className={styles.heroContainer}
       style={{ y: containerYMotionValue }}
     >
       <HeroText text={"Hello - I'm Akira"} motionValue={smoothY} />
-      <HeroImage />
+      <div ref={imageRef}>
+        <HeroImage />
+      </div>
     </motion.div>
   );
 };
