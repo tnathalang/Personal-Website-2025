@@ -8,9 +8,12 @@ import classes from "./styles.module.scss";
 import { Typography } from "@mui/material";
 import UnderlineWrapper from "../utils/UnderlineWrapper";
 
-interface HeaderProps {}
+interface HeaderProps {
+  onMouseEnter: () => void;
+  onMouseLeave: () => void;
+}
 
-export const Header = (_props: HeaderProps) => {
+export const Header = ({ onMouseEnter, onMouseLeave }: HeaderProps) => {
   const [isActive, setIsActive] = useState(false);
 
   return (
@@ -20,7 +23,12 @@ export const Header = (_props: HeaderProps) => {
           <Typography>Akira Na Thalang - Developer</Typography>
         </UnderlineWrapper>
       </div>
-      <MenuButton isActive={isActive} setIsActive={setIsActive}>
+      <MenuButton
+        isActive={isActive}
+        setIsActive={setIsActive}
+        onMouseEnter={onMouseEnter}
+        onMouseLeave={onMouseLeave}
+      >
         <AnimatePresence>{isActive && <MenuContent />}</AnimatePresence>
       </MenuButton>
     </div>

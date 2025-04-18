@@ -35,7 +35,7 @@ const IntroSection = ({ onMouseEnter, onMouseLeave }: IntroSectionProps) => {
       className={classes.introSectionContainer}
       display="grid"
       gap={2}
-      gridTemplateColumns={{ xs: "1fr", sm: "1fr 1fr" }} // 1 column on mobile, 2 equal columns on desktop, fr is fraction
+      gridTemplateColumns={{ xs: "1fr", sm: "1fr 1fr" }} // NOTE TO SELF, 1 column on mobile, 2 equal columns on desktop, fr is fraction
       paddingX={{ xs: 2, sm: 4, md: 6 }} // extra small 2, small 4, medium 6
       ref={introSectionRef}
     >

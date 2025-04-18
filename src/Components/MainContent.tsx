@@ -9,6 +9,7 @@ import ToolsCard from "./ToolsSection/ToolsCard";
 import Description from "./DescriptionSection/Description";
 import IntroSection from "./IntroSection/IntroSection";
 import ScrollPinSectionWrapper from "./utils/ScrollPinSectionWrapper";
+import Cursor from "./Cursor/Cursor";
 
 const MainContent = () => {
   const mainContentRef = useRef(null);
@@ -25,7 +26,11 @@ const MainContent = () => {
 
   return (
     <>
-      <Header />
+      <Cursor cursorVariant={cursorVariant} />
+      <Header
+        onMouseLeave={handleMouseLeave}
+        onMouseEnter={handleMouseEnter("menu")}
+      />
       <div style={{ marginBottom: "-50vh", zIndex: 1 }}>
         <div style={{ position: "sticky", top: 0 }}>
           <HeroSection />
@@ -36,18 +41,21 @@ const MainContent = () => {
       <ScrollPinSectionWrapper>
         <IntroSection
           onMouseLeave={handleMouseLeave}
-          onMouseEnter={handleMouseEnter("secondary")}
+          onMouseEnter={handleMouseEnter("menu")}
         />
       </ScrollPinSectionWrapper>
 
       <ScrollPinSectionWrapper>
-        <ToolsCard />
+        <ToolsCard
+          onMouseLeave={handleMouseLeave}
+          onMouseEnter={handleMouseEnter("secondary")}
+        />
       </ScrollPinSectionWrapper>
 
       <div>
         <Description
           onMouseLeave={handleMouseLeave}
-          onMouseEnter={handleMouseEnter("secondary")}
+          onMouseEnter={handleMouseEnter("menu")}
         />
         <Footer
           onMouseLeave={handleMouseLeave}

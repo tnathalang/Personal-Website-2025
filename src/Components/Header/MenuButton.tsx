@@ -8,6 +8,8 @@ import { getMenuVariant, getTransition } from "./animationVariant";
 interface MenuButtonProps {
   children: ReactNode;
   isActive: boolean;
+  onMouseEnter: () => void;
+  onMouseLeave: () => void;
   setIsActive: (active: boolean) => void;
 }
 
@@ -18,7 +20,13 @@ const getSpring = (isActive: boolean) =>
     ? { duration: 0.75, ease: [0.76, 0, 0.24, 1] }
     : { duration: 0.4, delay: 0.6, ease: "easeOut" };
 
-const MenuButton = ({ children, isActive, setIsActive }: MenuButtonProps) => {
+const MenuButton = ({
+  children,
+  isActive,
+  onMouseEnter,
+  onMouseLeave,
+  setIsActive,
+}: MenuButtonProps) => {
   const isMobile = useMediaQuery("(max-width: 768px)");
 
   return (
@@ -28,6 +36,8 @@ const MenuButton = ({ children, isActive, setIsActive }: MenuButtonProps) => {
       animate={isActive ? "open" : "closed"}
       initial="closed"
       onClick={() => setIsActive(!isActive)}
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
     >
       <div className={classes.expandableButton}>
         <MotionTypography

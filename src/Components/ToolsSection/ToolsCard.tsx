@@ -6,17 +6,23 @@ import HoverFlipText from "../utils/HoverFlipText";
 import MaskTextWrapper from "../utils/MaskTextWrapper";
 
 import classes from "./styles.module.scss";
+import { MouseActions } from "../HeroSection/types";
 
-interface ToolsCardprops {}
+interface ToolsCardprops extends MouseActions {}
 
 const labels = ["React", "Typescript", "Ruby on rails", "GraphQL", "Apollo"];
 
-const ToolsCard = (_props: ToolsCardprops) => {
+const ToolsCard = ({ onMouseEnter, onMouseLeave }: ToolsCardprops) => {
   const description = useRef(null);
   const isInView = useInView(description, { amount: 0.5 });
 
   return (
-    <div className={classes.toolsSection} ref={description}>
+    <div
+      className={classes.toolsSection}
+      ref={description}
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
+    >
       <div className={classes.body}>
         <div className={classes.leftSection}>
           <AnimatedText
