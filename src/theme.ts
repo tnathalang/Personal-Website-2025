@@ -15,7 +15,7 @@ const theme = createTheme({
   typography: {
     fontFamily: "Inter, sans-serif", // default fallback
     h1: {
-      fontFamily: "'Roslindale Deck Narrow', serif",
+      fontFamily: "Roslindale Deck Narrow, serif",
       fontStyle: "italic",
       fontWeight: 400,
       fontSize: "8rem", // 128px
@@ -23,7 +23,7 @@ const theme = createTheme({
       letterSpacing: "-0.5px",
     },
     h2: {
-      fontFamily: "'Roslindale Deck Narrow', serif",
+      fontFamily: "Inter, serif",
       fontStyle: "italic",
       fontWeight: 400,
       fontSize: "4rem", // 64px
@@ -31,7 +31,7 @@ const theme = createTheme({
       letterSpacing: "-0.25px",
     },
     h3: {
-      fontFamily: "'Roslindale Deck Narrow', serif",
+      fontFamily: "Roslindale Deck Narrow, serif",
       fontStyle: "italic",
       fontWeight: 400,
       fontSize: "3rem", // 48px
@@ -56,7 +56,7 @@ const theme = createTheme({
       lineHeight: 1.5,
     },
     subtitle1: {
-      fontFamily: "'Roslindale Text', serif",
+      fontFamily: "Roslindale, serif",
       fontStyle: "italic",
       fontWeight: 400,
       fontSize: "1.25rem", // 20px

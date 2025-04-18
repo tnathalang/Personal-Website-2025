@@ -1,7 +1,6 @@
 import { useRef, useState } from "react";
 
 import Footer from "./Footer/Footer";
-
 import { Header } from "./Header/Header";
 import HeroSection from "./HeroSection/HeroSection";
 import ToolsCard from "./ToolsSection/ToolsCard";
@@ -9,6 +8,8 @@ import Description from "./DescriptionSection/Description";
 import IntroSection from "./IntroSection/IntroSection";
 import ScrollPinSectionWrapper from "./utils/ScrollPinSectionWrapper";
 import Cursor from "./Cursor/Cursor";
+
+import classes from "../main.module.scss";
 
 const MainContent = () => {
   const mainContentRef = useRef(null);
@@ -47,7 +48,7 @@ const MainContent = () => {
         />
       </ScrollPinSectionWrapper>
 
-      <div>
+      <div className={classes.endSection}>
         <Description
           onMouseLeave={handleMouseLeave}
           onMouseEnter={handleMouseEnter("menu")}
