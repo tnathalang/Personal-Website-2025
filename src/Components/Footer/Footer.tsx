@@ -1,8 +1,6 @@
-import { MotionValue, useTransform } from "framer-motion";
-import { Typography } from "@mui/material";
+import { FooterContent } from "./FooterContent";
 
 import classes from "./styles.module.scss";
-import { FooterContent } from "./FooterContent";
 
 interface FooterProps {
   onMouseEnter: () => void;

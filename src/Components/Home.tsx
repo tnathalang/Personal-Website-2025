@@ -4,6 +4,7 @@ import MainContent from "./MainContent";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Cursor from "./Cursor/Cursor";
 import { Header } from "./Header/Header";
+import AboutMe from "./AboutMe/AboutMe";
 
 const Home = () => {
   const [cursorVariant, setCursorVariant] = useState("default");
@@ -42,7 +43,7 @@ const Home = () => {
             />
           }
         />
-        <Route path="/about-me" element={<h1>hello</h1>} />
+        <Route path="/about-me" element={<AboutMe />} />
       </Routes>
     </Router>
   );

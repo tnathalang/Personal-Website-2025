@@ -9,10 +9,14 @@ interface HeroTextProps {
 }
 
 const heroTextContainer = {
-  hidden: {},
+  hidden: {
+    opacity: 0,
+  },
   show: {
+    opacity: 1,
     transition: {
-      staggerChildren: 0.15,
+      delayChildren: 2,
+      staggerChildren: 0.08,
     },
   },
 };
@@ -35,7 +39,7 @@ const HeroText = ({ motionValue, text }: HeroTextProps) => {
   return (
     <motion.div
       className={styles.heroTextContainer}
-      // style={{ y: motionValue }}
+      style={{ y: motionValue }}
       animate="show"
       variants={heroTextContainer}
       initial="hidden"
@@ -47,6 +51,7 @@ const HeroText = ({ motionValue, text }: HeroTextProps) => {
           style={{
             marginRight: "0.8rem",
             position: "relative",
+            display: "inline-block",
           }}
         >
           <Typography variant="h1">{alph === " " ? "\u00A0" : alph}</Typography>

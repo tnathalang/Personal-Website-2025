@@ -1,5 +1,5 @@
-import { AnimatePresence, motion, useSpring } from "framer-motion";
-import { useEffect, useState } from "react";
+import { AnimatePresence } from "framer-motion";
+import { useState } from "react";
 
 import MenuContent from "./MenuContent";
 import MenuButton from "./MenuButton";
@@ -7,6 +7,7 @@ import MenuButton from "./MenuButton";
 import classes from "./styles.module.scss";
 import { Typography } from "@mui/material";
 import UnderlineWrapper from "../utils/UnderlineWrapper";
+import { Link } from "react-router-dom";
 
 interface HeaderProps {
   onMouseEnter: () => void;
@@ -20,7 +21,9 @@ export const Header = ({ onMouseEnter, onMouseLeave }: HeaderProps) => {
     <div className={classes.headerWrapper}>
       <div className={classes.headerText}>
         <UnderlineWrapper>
-          <Typography>Akira Na Thalang - Developer</Typography>
+          <Link to="/" style={{ textDecoration: "none", color: "inherit" }}>
+            <Typography>Akira Na Thalang - Developer</Typography>
+          </Link>
         </UnderlineWrapper>
       </div>
       <MenuButton
