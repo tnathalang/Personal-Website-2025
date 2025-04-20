@@ -3,23 +3,29 @@ import { ThemeProvider } from "@mui/material";
 
 import theme from "./theme";
 import Home from "./Components/Home";
+import Preloader from "./Components/Preloader/Preloader";
+import { AnimatePresence } from "framer-motion";
 
 function App() {
   const [showPreloader, setShowPreloader] = useState(true);
-  const [showInnerPage, setShowInnerPage] = useState(true);
 
   useEffect(() => {
-    const timer = setTimeout(() => setShowPreloader(false), 10);
+    const timer = setTimeout(() => {
+      setShowPreloader(false);
+
+      document.body.style.cursor = "default";
+      window.scrollTo(0, 0);
+    }, 1000);
+
     return () => clearTimeout(timer);
   }, []);
 
   return (
     <ThemeProvider theme={theme}>
-      {/* <AnimatePresence onExitComplete={() => setShowInnerPage(true)}>
+      <AnimatePresence mode="wait">
         {showPreloader && <Preloader />}
-      </AnimatePresence> */}
-
-      {showInnerPage && <Home />}
+      </AnimatePresence>
+      <Home />
     </ThemeProvider>
   );
 }

@@ -1,5 +1,5 @@
-import { AnimatePresence } from "framer-motion";
-import { useState } from "react";
+import { AnimatePresence, motion, useSpring } from "framer-motion";
+import { useEffect, useState } from "react";
 
 import MenuContent from "./MenuContent";
 import MenuButton from "./MenuButton";

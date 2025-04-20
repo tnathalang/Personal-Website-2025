@@ -28,7 +28,7 @@ const ToolsCard = ({ onMouseEnter, onMouseLeave }: ToolsCardprops) => {
     <motion.div
       ref={toolsCard}
       className={classes.toolsSection}
-      onMouseEnter={onMouseEnter}
+      onMouseEnter={() => onMouseEnter}
       onMouseLeave={onMouseLeave}
     >
       <div className={classes.body}>
