@@ -7,9 +7,8 @@
   background-color: var(--color-main);
   // 768px is the most commonly used breakpoints for tablets and below
   @media (max-width: 768px) {
-    height: auto;
-    max-height: none;
-    overflow: visible;
+    // height: auto;
+    // max-height: none;
   }
 }
 
@@ -24,6 +23,9 @@
 
   @media (max-width: 768px) {
     padding: 2rem;
+    h1 {
+      font-size: 6rem;
+    }
   }
 }
 

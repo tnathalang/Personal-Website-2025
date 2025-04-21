@@ -18,11 +18,8 @@ const MainContent = ({ onMouseEnter, onMouseLeave }: MainContentProps) => {
   return (
     <>
       <div ref={mainContentRef}>
-        <div style={{ marginBottom: "-50vh", zIndex: 1 }}>
-          <div style={{ position: "sticky", top: 0 }}>
-            <HeroSection />
-          </div>
-          <div style={{ height: "50vh" }} />
+        <div style={{ height: "90vh" }}>
+          <HeroSection />
         </div>
 
         <ScrollPinSectionWrapper>
