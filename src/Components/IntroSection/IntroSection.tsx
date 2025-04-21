@@ -1,13 +1,15 @@
-import { motion } from "framer-motion";
+import { motion, useAnimation } from "framer-motion";
 import HeroButton from "../HeroSection/HeroButton";
 import { Box } from "../Shared";
 import { MouseActions } from "../HeroSection/types";
 import AnimatedText from "../utils/AnimatedText";
 
 import classes from "./styles.module.scss";
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 
-interface IntroSectionProps extends MouseActions {}
+interface IntroSectionProps extends MouseActions {
+  preloaderFinished: boolean;
+}
 
 const phrase =
   "Turning ideas into interactive web experiences—one line of React code, one sip of coffee, and one cat cuddle at a time. Crafting front-end magic with passion and precision building intuitive, user-centered designs";
@@ -27,7 +29,11 @@ const buttonVariants = {
   },
 };
 
-const IntroSection = ({ onMouseEnter, onMouseLeave }: IntroSectionProps) => {
+const IntroSection = ({
+  preloaderFinished,
+  onMouseEnter,
+  onMouseLeave,
+}: IntroSectionProps) => {
   const introSectionRef = useRef(null);
 
   return (
@@ -48,7 +54,7 @@ const IntroSection = ({ onMouseEnter, onMouseLeave }: IntroSectionProps) => {
         gridColumn={{ xs: "1", sm: "1" }}
         component={motion.div}
       >
-        <AnimatedText text={phrase} />
+        <AnimatedText text={phrase} preloaderFinished={preloaderFinished} />
       </Box>
 
       <Box

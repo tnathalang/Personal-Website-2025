@@ -8,6 +8,7 @@ import { AnimatePresence } from "framer-motion";
 
 function App() {
   const [showPreloader, setShowPreloader] = useState(true);
+  const [preloaderFinished, serPreloaderFinished] = useState(false);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -22,10 +23,13 @@ function App() {
 
   return (
     <ThemeProvider theme={theme}>
-      <AnimatePresence mode="wait">
+      <AnimatePresence
+        mode="wait"
+        onExitComplete={() => serPreloaderFinished(true)}
+      >
         {showPreloader && <Preloader />}
       </AnimatePresence>
-      <Home />
+      <Home preloaderFinished={preloaderFinished} />
     </ThemeProvider>
   );
 }

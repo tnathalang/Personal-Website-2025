@@ -10,9 +10,15 @@ import classes from "../main.module.scss";
 import { MouseActions } from "./HeroSection/types";
 import { motion, useInView, useScroll, useTransform } from "framer-motion";
 
-interface MainContentProps extends MouseActions {}
+interface MainContentProps extends MouseActions {
+  preloaderFinished: boolean;
+}
 
-const MainContent = ({ onMouseEnter, onMouseLeave }: MainContentProps) => {
+const MainContent = ({
+  preloaderFinished,
+  onMouseEnter,
+  onMouseLeave,
+}: MainContentProps) => {
   const mainContentRef = useRef(null);
   const introRef = useRef(null);
   const toolsRef = useRef(null);
@@ -43,9 +49,10 @@ const MainContent = ({ onMouseEnter, onMouseLeave }: MainContentProps) => {
           }}
           transition={{ duration: 0.3 }}
         >
-          <HeroSection />
+          <HeroSection preloaderFinished={preloaderFinished} />
           <motion.div style={{ y: introSectionMotionValue }}>
             <IntroSection
+              preloaderFinished={preloaderFinished}
               onMouseLeave={onMouseLeave}
               onMouseEnter={() => onMouseEnter("menu")}
             />

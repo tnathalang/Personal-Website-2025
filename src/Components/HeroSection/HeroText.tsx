@@ -1,9 +1,11 @@
-import { motion, MotionValue } from "framer-motion";
+import { motion, MotionValue, useAnimation } from "framer-motion";
 import { Typography } from "@mui/material";
 
 import styles from "./styles.module.scss";
+import { useEffect } from "react";
 
 interface HeroTextProps {
+  preloaderFinished: boolean;
   motionValue: MotionValue<number>;
   text: string;
 }
@@ -34,12 +36,20 @@ const letter = {
   },
 };
 
-const HeroText = ({ motionValue, text }: HeroTextProps) => {
+const HeroText = ({ preloaderFinished, motionValue, text }: HeroTextProps) => {
+  const controls = useAnimation();
+
+  useEffect(() => {
+    if (preloaderFinished) {
+      controls.start("show");
+    }
+  }, [preloaderFinished, controls]);
+
   return (
     <motion.div
       className={styles.heroTextContainer}
       style={{ y: motionValue }}
-      animate="show"
+      animate={controls}
       variants={heroTextContainer}
       initial="hidden"
     >

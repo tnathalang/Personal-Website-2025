@@ -6,9 +6,11 @@ import HeroImage from "./HeroImage";
 
 import styles from "./styles.module.scss";
 
-interface HeroSectionProps {}
+interface HeroSectionProps {
+  preloaderFinished: boolean;
+}
 
-const HeroSection = (_props: HeroSectionProps) => {
+const HeroSection = ({ preloaderFinished }: HeroSectionProps) => {
   const imageRef = useRef(null);
 
   const { scrollYProgress: imageScrollYProgress } = useScroll({
@@ -21,7 +23,11 @@ const HeroSection = (_props: HeroSectionProps) => {
 
   return (
     <div className={styles.heroContainer}>
-      <HeroText text={"Hello - I'm Akira"} motionValue={smoothY} />
+      <HeroText
+        text={"Hello - I'm Akira"}
+        motionValue={smoothY}
+        preloaderFinished={preloaderFinished}
+      />
       <div ref={imageRef}>
         <HeroImage />
       </div>

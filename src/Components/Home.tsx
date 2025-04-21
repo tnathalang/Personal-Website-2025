@@ -6,7 +6,11 @@ import Cursor from "./Cursor/Cursor";
 import { Header } from "./Header/Header";
 import AboutMe from "./AboutMe/AboutMe";
 
-const Home = () => {
+interface HomeProps {
+  preloaderFinished: boolean;
+}
+
+const Home = ({ preloaderFinished }: HomeProps) => {
   const [cursorVariant, setCursorVariant] = useState("default");
 
   const handleMouseLeave = () => {
@@ -40,6 +44,7 @@ const Home = () => {
             <MainContent
               onMouseEnter={handleMouseEnter("secondary")}
               onMouseLeave={handleMouseLeave}
+              preloaderFinished={preloaderFinished}
             />
           }
         />
