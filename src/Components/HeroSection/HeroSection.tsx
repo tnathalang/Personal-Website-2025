@@ -9,13 +9,7 @@ import styles from "./styles.module.scss";
 interface HeroSectionProps {}
 
 const HeroSection = (_props: HeroSectionProps) => {
-  const wrapperRef = useRef(null);
   const imageRef = useRef(null);
-
-  const { scrollYProgress: containerScrollYProgress } = useScroll({
-    target: wrapperRef,
-    offset: ["start start", "end start"],
-  });
 
   const { scrollYProgress: imageScrollYProgress } = useScroll({
     target: imageRef,
@@ -25,23 +19,13 @@ const HeroSection = (_props: HeroSectionProps) => {
   const stickyY = useTransform(imageScrollYProgress, [0, 1], [0, 50]);
   const smoothY = useSpring(stickyY, { stiffness: 120, damping: 20 });
 
-  const containerYMotionValue = useTransform(
-    containerScrollYProgress,
-    [0, 1],
-    ["0vh", "0vh"]
-  );
-
   return (
-    <motion.div
-      ref={wrapperRef}
-      className={styles.heroContainer}
-      style={{ y: containerYMotionValue }}
-    >
+    <div className={styles.heroContainer}>
       <HeroText text={"Hello - I'm Akira"} motionValue={smoothY} />
       <div ref={imageRef}>
         <HeroImage />
       </div>
-    </motion.div>
+    </div>
   );
 };
 

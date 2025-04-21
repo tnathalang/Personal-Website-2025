@@ -15,7 +15,6 @@ const heroTextContainer = {
   show: {
     opacity: 1,
     transition: {
-      delayChildren: 2,
       staggerChildren: 0.08,
     },
   },

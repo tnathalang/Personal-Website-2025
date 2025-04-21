@@ -5,11 +5,6 @@
   align-items: center;
   width: 100%;
   background-color: var(--color-main);
-  // 768px is the most commonly used breakpoints for tablets and below
-  @media (max-width: 768px) {
-    // height: auto;
-    // max-height: none;
-  }
 }
 
 .heroTextContainer {

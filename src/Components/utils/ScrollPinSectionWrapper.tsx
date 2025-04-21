@@ -8,7 +8,7 @@ const ScrollPinSectionWrapper = ({
   children,
 }: ScrollPinSectionWrapperProps) => {
   return (
-    <div style={{ marginBottom: "-55vh", zIndex: 2 }}>
+    <div style={{ marginBottom: "-55vh" }}>
       <div
         style={{
           position: "sticky",

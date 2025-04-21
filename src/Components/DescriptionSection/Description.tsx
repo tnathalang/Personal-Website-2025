@@ -43,7 +43,7 @@ const Description = ({ onMouseEnter, onMouseLeave }: DescriptionProps) => {
 
   return (
     <div ref={description} className={classes.descriptionWrapper}>
-      <motion.div style={{ rotate }} className={classes.motionWrapper}>
+      <motion.div className={classes.motionWrapper}>
         <div className={classes.description}>
           <AnimatedText
             text="About me"

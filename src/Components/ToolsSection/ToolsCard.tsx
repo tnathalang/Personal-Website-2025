@@ -17,13 +17,6 @@ const ToolsCard = ({ onMouseEnter, onMouseLeave }: ToolsCardprops) => {
   const isInView = useInView(toolsCard, { amount: 0.5 });
   const [hovered, setHovered] = useState(false);
 
-  // const { scrollYProgress } = useScroll({
-  //   target: toolsCard,
-  //   offset: ["start end", "end start"],
-  // });
-
-  // const rotate = useTransform(scrollYProgress, [0, 0.5], [-5, 0]);
-
   return (
     <motion.div
       ref={toolsCard}
