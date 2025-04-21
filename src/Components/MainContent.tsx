@@ -5,7 +5,6 @@ import HeroSection from "./HeroSection/HeroSection";
 import ToolsCard from "./ToolsSection/ToolsCard";
 import Description from "./DescriptionSection/Description";
 import IntroSection from "./IntroSection/IntroSection";
-import ScrollPinSectionWrapper from "./utils/ScrollPinSectionWrapper";
 
 import classes from "../main.module.scss";
 import { MouseActions } from "./HeroSection/types";
@@ -17,6 +16,7 @@ const MainContent = ({ onMouseEnter, onMouseLeave }: MainContentProps) => {
   const mainContentRef = useRef(null);
   const introRef = useRef(null);
   const toolsRef = useRef(null);
+  const descriptionRef = useRef(null);
 
   const { scrollYProgress: containerScrollYProgress } = useScroll({
     target: introRef,
@@ -29,12 +29,20 @@ const MainContent = ({ onMouseEnter, onMouseLeave }: MainContentProps) => {
     [0, -200]
   );
 
-  const isInView = useInView(toolsRef);
+  const isInView = useInView(toolsRef, { amount: 0.8 });
 
   return (
     <>
       <div ref={mainContentRef}>
-        <div style={{ height: "100vh", backgroundColor: "#f5f1e6" }}>
+        <motion.div
+          style={{ height: "100vh" }}
+          initial={{ backgroundColor: "#F5F1E6" }}
+          animate={{
+            backgroundColor: isInView ? "#1c1c1c" : "#f5f1e6",
+            color: isInView ? "#f5f1e6" : "#1c1c1c",
+          }}
+          transition={{ duration: 0.3 }}
+        >
           <HeroSection />
           <motion.div style={{ y: introSectionMotionValue }}>
             <IntroSection
@@ -42,17 +50,16 @@ const MainContent = ({ onMouseEnter, onMouseLeave }: MainContentProps) => {
               onMouseEnter={() => onMouseEnter("menu")}
             />
           </motion.div>
-        </div>
+        </motion.div>
 
         <div>
           <motion.div
             ref={toolsRef}
-            initial={{ backgroundColor: "#F5F1E6" }}
             animate={{
               backgroundColor: isInView ? "#1c1c1c" : "#f5f1e6",
               color: isInView ? "#f5f1e6" : "#1c1c1c",
             }}
-            transition={{ duration: 1 }}
+            transition={{ duration: 0.3 }}
           >
             <ToolsCard
               onMouseLeave={onMouseLeave}
@@ -62,10 +69,20 @@ const MainContent = ({ onMouseEnter, onMouseLeave }: MainContentProps) => {
         </div>
 
         <div className={classes.endSection}>
-          <Description
-            onMouseLeave={onMouseLeave}
-            onMouseEnter={() => onMouseEnter("menu")}
-          />
+          <motion.div
+            ref={descriptionRef}
+            animate={{
+              backgroundColor: isInView ? "#1c1c1c" : "#f5f1e6",
+              color: isInView ? "#f5f1e6" : "#1c1c1c",
+            }}
+            transition={{ duration: 0.3 }}
+          >
+            <Description
+              onMouseLeave={onMouseLeave}
+              onMouseEnter={() => onMouseEnter("menu")}
+            />
+          </motion.div>
+
           <Footer
             onMouseLeave={onMouseLeave}
             onMouseEnter={() => onMouseEnter("secondary")}
