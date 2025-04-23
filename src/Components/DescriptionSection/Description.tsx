@@ -54,7 +54,7 @@ const Description = ({
             preloaderFinished={preloaderFinished}
             text="About me"
             isInView={isInView}
-            variant="subheder"
+            variant="h3"
           />
 
           <div className={classes.body}>

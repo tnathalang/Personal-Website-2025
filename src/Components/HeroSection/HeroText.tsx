@@ -3,6 +3,7 @@ import { Typography } from "@mui/material";
 
 import styles from "./styles.module.scss";
 import { useEffect } from "react";
+import AnimatedText from "../utils/AnimatedText";
 
 interface HeroTextProps {
   preloaderFinished: boolean;
@@ -53,19 +54,11 @@ const HeroText = ({ preloaderFinished, motionValue, text }: HeroTextProps) => {
       variants={heroTextContainer}
       initial="hidden"
     >
-      {text.split(" ").map((alph, index) => (
-        <motion.span
-          variants={letter}
-          key={index}
-          style={{
-            marginRight: "0.8rem",
-            position: "relative",
-            display: "inline-block",
-          }}
-        >
-          <Typography variant="h1">{alph === " " ? "\u00A0" : alph}</Typography>
-        </motion.span>
-      ))}
+      <AnimatedText
+        text={text}
+        preloaderFinished={preloaderFinished}
+        variant="h1"
+      />
     </motion.div>
   );
 };

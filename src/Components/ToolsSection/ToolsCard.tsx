@@ -34,7 +34,7 @@ const ToolsCard = ({
         <div className={classes.leftSection}>
           <AnimatedText
             preloaderFinished={preloaderFinished}
-            variant="subheder"
+            variant="h3"
             text="What I’m usually building with"
             isInView={isInView}
           />
@@ -51,7 +51,7 @@ const ToolsCard = ({
             >
               <div className={classes.wrapper}>
                 <MaskTextWrapper
-                  isInView={isInView}
+                  isInView={true}
                   preloaderFinished={preloaderFinished}
                 >
                   <HoverFlipText label={label} />

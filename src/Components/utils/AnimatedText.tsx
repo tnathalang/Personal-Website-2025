@@ -9,14 +9,14 @@ interface AnimatedTextProps {
   text: string;
   preloaderFinished: boolean;
   isInView?: boolean;
-  variant?: "subheder" | "default";
+  variant?: "h3" | "body1" | "h1";
 }
 
 const AnimatedText = ({
   isInView = true,
   preloaderFinished,
   text,
-  variant = "default",
+  variant = "body1",
 }: AnimatedTextProps) => {
   const words = text.split(" ");
 
@@ -28,10 +28,7 @@ const AnimatedText = ({
             isInView={isInView}
             preloaderFinished={preloaderFinished}
           >
-            <Typography
-              variant={variant === "default" ? "body1" : "h3"}
-              className={classes.text}
-            >
+            <Typography variant={variant} className={classes.text}>
               {word + " "}
             </Typography>
           </MaskTextWrapper>

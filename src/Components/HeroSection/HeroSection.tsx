@@ -5,6 +5,7 @@ import HeroText from "./HeroText";
 import HeroImage from "./HeroImage";
 
 import styles from "./styles.module.scss";
+import AnimatedText from "../utils/AnimatedText";
 
 interface HeroSectionProps {
   preloaderFinished: boolean;
