@@ -11,6 +11,7 @@ import TypewriterText from "../utils/TypewriterText";
 import { Link } from "react-router-dom";
 
 interface DescriptionProps {
+  preloaderFinished: boolean;
   onMouseEnter: () => void;
   onMouseLeave: () => void;
 }
@@ -30,7 +31,11 @@ const ArrowUpIcon = styled(ArrowUpRightIcon)(() => ({
   height: "16px",
 }));
 
-const Description = ({ onMouseEnter, onMouseLeave }: DescriptionProps) => {
+const Description = ({
+  preloaderFinished,
+  onMouseEnter,
+  onMouseLeave,
+}: DescriptionProps) => {
   const description = useRef(null);
   const isInView = useInView(description, { amount: 0.5 });
 
@@ -46,6 +51,7 @@ const Description = ({ onMouseEnter, onMouseLeave }: DescriptionProps) => {
       <motion.div className={classes.motionWrapper}>
         <div className={classes.description}>
           <AnimatedText
+            preloaderFinished={preloaderFinished}
             text="About me"
             isInView={isInView}
             variant="subheder"
@@ -53,7 +59,11 @@ const Description = ({ onMouseEnter, onMouseLeave }: DescriptionProps) => {
 
           <div className={classes.body}>
             <div className={classes.leftSection}>
-              <AnimatedText text={label} isInView={isInView} />
+              <AnimatedText
+                text={label}
+                isInView={isInView}
+                preloaderFinished={preloaderFinished}
+              />
               <div
                 className={classes.button}
                 onMouseEnter={onMouseEnter}

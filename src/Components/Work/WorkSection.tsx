@@ -1,89 +1,73 @@
-import { Typography, styled } from "@mui/material";
-import { motion, useInView, useScroll, useTransform } from "framer-motion";
+import { Typography } from "@mui/material";
+import { useInView, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
-import { ArrowUpRightIcon } from "@heroicons/react/24/outline";
 
-import classes from "./styles.module.scss";
-import AnimatedButton from "../Buttons/AnimatedButton";
+import classes from "./style.module.scss";
 
-import AnimatedText from "../utils/AnimatedText";
-import TypewriterText from "../utils/TypewriterText";
-import { Link } from "react-router-dom";
+interface WorkSectionProps {}
 
-interface WorkSectionProps {
-  onMouseEnter: () => void;
-  onMouseLeave: () => void;
-}
-
-const label =
-  "I'm a front-end developer who cares about the details. I build responsive, accessible web experiences with React, TypeScript, and GraphQL—and I’m comfortable diving into the back end too, especially with Ruby on Rails. I love crafting clean UI, writing thoughtful code, and collaborating with teams to turn ideas into polished products.";
-
-const punchLines = [
-  "good code is never finished.",
-  "the best solutions evolve over time.",
-  "each line can be better than the last.",
-  "every challenge is an opportunity to improve.",
+const workData = [
+  {
+    title: "Full-Stack developer",
+    company: "Potloc",
+    description:
+      "Delivering end-to-end features, collaborating on UI/UX, maintaining the design system and Storybook, writing tests, and fostering teamwork through code reviews, brainstorming, and pair programming.",
+    stacks: ["React", "Ruby on Rails", "GraphQL", "Apollo"],
+    detailed: "",
+  },
 ];
 
-const ArrowUpIcon = styled(ArrowUpRightIcon)(() => ({
-  width: "16px",
-  height: "16px",
-}));
-
 const WorkSection = ({ onMouseEnter, onMouseLeave }: WorkSectionProps) => {
-  const WorkSection = useRef(null);
-  const isInView = useInView(WorkSection, { amount: 0.5 });
-
-  const { scrollYProgress } = useScroll({
-    target: WorkSection,
-    offset: ["start end", "end start"],
-  });
-
-  const rotate = useTransform(scrollYProgress, [0, 0.5], [5, 0]);
+  const workSection = useRef(null);
+  const isInView = useInView(workSection, { amount: 0.5 });
 
   return (
-    <div ref={WorkSection} className={classes.workSectionWrapper}>
-      <motion.div className={classes.motionWrapper}>
-        <div className={classes.WorkSection}>
-          <AnimatedText
-            text="About me"
-            isInView={isInView}
-            variant="subheder"
-          />
-
-          <div className={classes.body}>
-            <div className={classes.leftSection}>
-              <AnimatedText text={label} isInView={isInView} />
-              <div
-                className={classes.button}
-                onMouseEnter={onMouseEnter}
-                onMouseLeave={onMouseLeave}
-              >
-                <Link
-                  to="/about-me"
-                  style={{ textDecoration: "none", color: "inherit" }}
-                >
-                  <AnimatedButton
-                    label="More about me"
-                    icon={<ArrowUpIcon />}
-                  />
-                </Link>
+    <div className={classes.workSectionContainer}>
+      <Typography variant="h3">Most recent position</Typography>
+      <div ref={workSection} className={classes.parent}>
+        {workData.map((work, index) => (
+          <>
+            <Typography
+              variant="h4"
+              className={classes.company}
+              fontSize="10rem"
+              alignItems="center"
+              display="flex"
+              justifyContent="center"
+            >
+              {work.company}
+            </Typography>
+            <Typography
+              variant="h4"
+              className={classes.title}
+              fontSize="3rem"
+              alignItems="center"
+              display="flex"
+              justifyContent="center"
+            >
+              {work.title}
+            </Typography>
+            <Typography
+              variant="body1"
+              className={classes.description}
+              alignItems="flex-start"
+              display="flex"
+              justifyContent="left"
+              padding="40px"
+              fontSize="2rem"
+            >
+              {work.description}
+            </Typography>
+            <div className={classes.stacks}>
+              <div className={classes.parentStacks}>
+                {work.stacks.map((stack, index) => (
+                  <Typography fontSize="2rem">{stack}</Typography>
+                ))}
               </div>
             </div>
-            <div className={classes.rightSection}>
-              <Typography>Always learning, always refining —</Typography>
-              <Typography className={classes.typewriter}>
-                because&nbsp;
-                <TypewriterText
-                  accented
-                  words={punchLines}
-                  typingSpeed="fast"
-                />
-              </Typography>
-            </div>
-          </div>
-        </div>
-      </motion.div>
+          </>
+        ))}
+      </div>
     </div>
   );
 };

@@ -1,0 +1,55 @@
+.workSectionContainer {
+  padding: 180px 88px 40px 88px;
+}
+
+.parent {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  gap: 24px;
+  margin-top: 80px;
+}
+
+.company {
+  grid-column: span 2 / span 2;
+  grid-row: span 2 / span 2;
+  background-color: var(--color-secondary);
+  border-radius: 20px;
+}
+
+.title {
+  grid-column: span 3 / span 3;
+  grid-column-start: 3;
+  background-color: var(--color-accent);
+  color: var(--color-text);
+  border-radius: 20px;
+}
+
+.description {
+  grid-column: span 3 / span 3;
+  grid-row: span 3 / span 3;
+  grid-column-start: 3;
+  grid-row-start: 2;
+  background-color: #3e3a36;
+  border-radius: 20px;
+}
+
+.stacks {
+  grid-column: span 2 / span 2;
+  grid-row: span 2 / span 2;
+  grid-row-start: 3;
+  background-color: var(--color-main);
+  color: var(--color-text);
+  border-radius: 20px;
+}
+
+.parentStacks {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 12px;
+  height: 100%;
+  padding: 20px;
+  align-items: center;
+  justify-items: flex-start;
+}

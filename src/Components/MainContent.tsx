@@ -9,6 +9,7 @@ import IntroSection from "./IntroSection/IntroSection";
 import classes from "../main.module.scss";
 import { MouseActions } from "./HeroSection/types";
 import { motion, useInView, useScroll, useTransform } from "framer-motion";
+import WorkSection from "./Work/WorkSection";
 
 interface MainContentProps extends MouseActions {
   preloaderFinished: boolean;
@@ -35,7 +36,7 @@ const MainContent = ({
     [0, -200]
   );
 
-  const isInView = useInView(toolsRef, { amount: 0.8 });
+  const isInView = useInView(toolsRef, { amount: 0.2 });
 
   return (
     <>
@@ -47,7 +48,7 @@ const MainContent = ({
             backgroundColor: isInView ? "#1c1c1c" : "#f5f1e6",
             color: isInView ? "#f5f1e6" : "#1c1c1c",
           }}
-          transition={{ duration: 0.3 }}
+          transition={{ duration: 0.5 }}
         >
           <HeroSection preloaderFinished={preloaderFinished} />
           <motion.div style={{ y: introSectionMotionValue }}>
@@ -59,42 +60,44 @@ const MainContent = ({
           </motion.div>
         </motion.div>
 
-        <div>
-          <motion.div
-            ref={toolsRef}
-            animate={{
-              backgroundColor: isInView ? "#1c1c1c" : "#f5f1e6",
-              color: isInView ? "#f5f1e6" : "#1c1c1c",
-            }}
-            transition={{ duration: 0.3 }}
-          >
-            <ToolsCard
-              onMouseLeave={onMouseLeave}
-              onMouseEnter={() => onMouseEnter("secondary")}
-            />
-          </motion.div>
-        </div>
-
-        <div className={classes.endSection}>
-          <motion.div
-            ref={descriptionRef}
-            animate={{
-              backgroundColor: isInView ? "#1c1c1c" : "#f5f1e6",
-              color: isInView ? "#f5f1e6" : "#1c1c1c",
-            }}
-            transition={{ duration: 0.3 }}
-          >
-            <Description
-              onMouseLeave={onMouseLeave}
-              onMouseEnter={() => onMouseEnter("menu")}
-            />
-          </motion.div>
-
-          <Footer
+        <motion.div
+          ref={toolsRef}
+          animate={{
+            backgroundColor: isInView ? "#1c1c1c" : "#f5f1e6",
+            color: isInView ? "#f5f1e6" : "#1c1c1c",
+          }}
+          transition={{ duration: 0.5 }}
+        >
+          <ToolsCard
+            preloaderFinished={preloaderFinished}
             onMouseLeave={onMouseLeave}
             onMouseEnter={() => onMouseEnter("secondary")}
           />
+        </motion.div>
+
+        <motion.div
+          ref={toolsRef}
+          animate={{
+            backgroundColor: isInView ? "#1c1c1c" : "#f5f1e6",
+            color: isInView ? "#f5f1e6" : "#1c1c1c",
+          }}
+          transition={{ duration: 0.5 }}
+        >
+          <WorkSection />
+        </motion.div>
+
+        <div ref={descriptionRef} className={classes.endSection}>
+          <Description
+            preloaderFinished={preloaderFinished}
+            onMouseLeave={onMouseLeave}
+            onMouseEnter={() => onMouseEnter("menu")}
+          />
         </div>
+
+        <Footer
+          onMouseLeave={onMouseLeave}
+          onMouseEnter={() => onMouseEnter("secondary")}
+        />
       </div>
     </>
   );
