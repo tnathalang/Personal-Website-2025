@@ -20,7 +20,7 @@ const ToolsCard = ({
   onMouseLeave,
 }: ToolsCardprops) => {
   const toolsCard = useRef(null);
-  const isInView = useInView(toolsCard, { amount: 0.5 });
+  const isInView = useInView(toolsCard, { amount: 0.5, once: true });
   const [hovered, setHovered] = useState(false);
 
   return (

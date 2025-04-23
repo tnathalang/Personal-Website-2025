@@ -37,7 +37,7 @@ const Description = ({
   onMouseLeave,
 }: DescriptionProps) => {
   const description = useRef(null);
-  const isInView = useInView(description, { amount: 0.5 });
+  const isInView = useInView(description, { amount: 0.5, once: true });
 
   const { scrollYProgress } = useScroll({
     target: description,

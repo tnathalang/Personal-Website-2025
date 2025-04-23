@@ -36,7 +36,7 @@ const MainContent = ({
     [0, -200]
   );
 
-  const isInView = useInView(toolsRef, { amount: 0.2 });
+  const isInView = useInView(toolsRef, { amount: 0.2, once: true });
 
   return (
     <>
