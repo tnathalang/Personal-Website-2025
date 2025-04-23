@@ -75,18 +75,8 @@ const MainContent = ({
           />
         </motion.div>
 
-        <motion.div
-          ref={toolsRef}
-          animate={{
-            backgroundColor: isInView ? "#1c1c1c" : "#f5f1e6",
-            color: isInView ? "#f5f1e6" : "#1c1c1c",
-          }}
-          transition={{ duration: 0.5 }}
-        >
-          <WorkSection />
-        </motion.div>
-
         <div ref={descriptionRef} className={classes.endSection}>
+          <WorkSection />
           <Description
             preloaderFinished={preloaderFinished}
             onMouseLeave={onMouseLeave}

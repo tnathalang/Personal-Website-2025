@@ -3,6 +3,9 @@ import { useInView, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 
 import classes from "./style.module.scss";
+import AnimatedButton from "../Buttons/AnimatedButton";
+import { Link } from "react-router-dom";
+import { ArrowUpRightIcon } from "@heroicons/react/24/outline";
 
 interface WorkSectionProps {}
 
@@ -24,50 +27,54 @@ const WorkSection = ({ onMouseEnter, onMouseLeave }: WorkSectionProps) => {
   return (
     <div className={classes.workSectionContainer}>
       <Typography variant="h3">Most recent position</Typography>
-      <div ref={workSection} className={classes.parent}>
-        {workData.map((work, index) => (
-          <>
-            <Typography
-              variant="h4"
-              className={classes.company}
-              fontSize="10rem"
-              alignItems="center"
-              display="flex"
-              justifyContent="center"
-            >
-              {work.company}
-            </Typography>
-            <Typography
-              variant="h4"
-              className={classes.title}
-              fontSize="3rem"
-              alignItems="center"
-              display="flex"
-              justifyContent="center"
-            >
-              {work.title}
-            </Typography>
+      {workData.map((work, index) => (
+        <div ref={workSection} className={classes.parent} key={index}>
+          <Typography
+            variant="h4"
+            className={classes.company}
+            fontSize="10rem"
+            alignItems="center"
+            display="flex"
+            justifyContent="center"
+          >
+            {work.company}
+          </Typography>
+          <Typography
+            variant="h4"
+            className={classes.title}
+            fontSize="3rem"
+            alignItems="center"
+            display="flex"
+            justifyContent="center"
+          >
+            {work.title}
+          </Typography>
+          <div className={classes.description}>
             <Typography
               variant="body1"
-              className={classes.description}
-              alignItems="flex-start"
-              display="flex"
-              justifyContent="left"
-              padding="40px"
-              fontSize="2rem"
+              sx={{
+                padding: "40px",
+                fontSize: "2rem",
+              }}
             >
               {work.description}
             </Typography>
-            <div className={classes.stacks}>
-              <div className={classes.parentStacks}>
-                {work.stacks.map((stack, index) => (
-                  <Typography fontSize="2rem">{stack}</Typography>
-                ))}
-              </div>
+            <div className={classes.moreDetails}>
+              <AnimatedButton label="More details" />
             </div>
-          </>
-        ))}
-      </div>
+          </div>
+
+          <div className={classes.stacks}>
+            <div className={classes.parentStacks}>
+              {work.stacks.map((stack, index) => (
+                <Typography key={index} fontSize="2rem">
+                  {stack}
+                </Typography>
+              ))}
+            </div>
+          </div>
+        </div>
+      ))}
     </div>
   );
 };
