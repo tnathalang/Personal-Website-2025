@@ -3,7 +3,8 @@ import { useRef, useState } from "react";
 
 import classes from "./style.module.scss";
 import AnimatedButton from "../Buttons/AnimatedButton";
-import WorkDetailModal from "./WorkDetailModal";
+import WorkDetail from "./WorkDetail";
+import { AnimatePresence, motion } from "framer-motion";
 
 interface WorkSectionProps {}
 
@@ -18,14 +19,43 @@ const workData = [
   },
 ];
 
+const responsibilities = [
+  "Takes on a feature, breaks it down into stories, and delivers them from start to finish",
+  "Writes clean and efficient code (React, TypeScript, Ruby on Rails, GraphQL)",
+  "Participates in code review sessions with teammates and cross-team collaborators",
+  "Works closely with designers to improve UI/UX and bring tasks to life",
+  "Contributes to the internal design system",
+  "Updates and implements Storybook for new or updated components",
+  "Writes tests in RSpec: system tests for UI and unit tests for methods",
+  "Engages in feature planning discussions, daily standups, and scrum routines",
+  "Helps organize team and company-wide events and gatherings",
+  "Promotes transparency and teamwork through support and pair programming",
+];
+
+const bodyVariant = {
+  initial: {
+    opacity: 0,
+  },
+  enter: (i: number) => ({
+    opacity: 1,
+    transition: {
+      duration: 0.65,
+      delay: 0.12 * i, // Delay for each item based on its index
+      ease: [0.215, 0.61, 0.355, 1],
+    },
+  }),
+  exit: {
+    opacity: 0,
+    transition: { duration: 0.5, type: "linear", ease: [0.76, 0, 0.24, 1] },
+  },
+};
+
 const WorkSection = (_props: WorkSectionProps) => {
   const workSection = useRef(null);
-  const [open, setOpen] = useState(false);
+  const [moreDetails, setMoreDetails] = useState(false);
 
   return (
     <>
-      <WorkDetailModal open={open} onClose={() => setOpen(false)} />
-
       <div className={classes.workSectionContainer}>
         <Typography variant="h3">Most recent position</Typography>
         {workData.map((work, index) => (
@@ -50,23 +80,73 @@ const WorkSection = (_props: WorkSectionProps) => {
             >
               {work.title}
             </Typography>
-            <div className={classes.description}>
-              <Typography
-                variant="body1"
-                sx={{
-                  padding: "40px",
-                  fontSize: "2rem",
-                }}
-              >
-                {work.description}
-              </Typography>
+
+            <motion.div
+              className={classes.description}
+              layout
+              initial={false}
+              transition={{ duration: 1, ease: "easeInOut" }}
+            >
+              <AnimatePresence mode="wait" initial={false}>
+                <Typography
+                  variant="body1"
+                  sx={{
+                    padding: "40px",
+                    fontSize: "2rem",
+                  }}
+                >
+                  {moreDetails ? (
+                    <motion.ul
+                      key="details"
+                      initial={{ opacity: 0 }}
+                      animate={{
+                        opacity: 1,
+                        transition: {
+                          duration: 1,
+                          ease: [0.76, 0, 0.24, 1],
+                        },
+                      }}
+                      exit={{ opacity: 0 }}
+                      layout
+                      style={{ paddingLeft: "20px", margin: 0 }}
+                    >
+                      {responsibilities.map((responsibility, index) => (
+                        <motion.li
+                          key={index}
+                          variants={bodyVariant}
+                          initial="initial"
+                          animate="enter"
+                          exit="exit"
+                          custom={index}
+                        >
+                          {responsibility}
+                        </motion.li>
+                      ))}
+                    </motion.ul>
+                  ) : (
+                    <motion.div
+                      layout
+                      key="summary"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{
+                        opacity: 0,
+                        transition: { duration: 1, ease: [0.76, 0, 0.24, 1] },
+                      }}
+                    >
+                      {work.description}
+                    </motion.div>
+                  )}
+                </Typography>
+              </AnimatePresence>
+
               <div className={classes.moreDetails}>
                 <AnimatedButton
-                  label="More details"
-                  onClick={() => setOpen(true)}
+                  label={moreDetails ? "Less details" : "More details"}
+                  onClick={() => setMoreDetails(!moreDetails)}
                 />
               </div>
-            </div>
+            </motion.div>
 
             <div className={classes.stacks}>
               <div className={classes.parentStacks}>

@@ -33,7 +33,7 @@ export const Header = ({ onMouseEnter, onMouseLeave }: HeaderProps) => {
           <Typography>Home</Typography>
         </div>
       </div>
-      {/* <MenuButton
+      <MenuButton
         isActive={isActive}
         setIsActive={setIsActive}
         onMouseEnter={onMouseEnter}
@@ -42,7 +42,7 @@ export const Header = ({ onMouseEnter, onMouseLeave }: HeaderProps) => {
         <AnimatePresence>
           {isActive && <MenuContent isActive={isActive} />}
         </AnimatePresence>
-      </MenuButton> */}
+      </MenuButton>
     </div>
   );
 };
