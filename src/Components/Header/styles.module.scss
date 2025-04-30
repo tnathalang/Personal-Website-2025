@@ -1,5 +1,5 @@
 .headerWrapper {
-  align-items: center;
+  justify-content: space-between;
   display: flex;
   cursor: pointer;
   background-color: var(--color-main);
@@ -7,8 +7,8 @@
 }
 
 .headerText {
-  padding-top: 30px;
-  padding-bottom: 30px;
+  margin-top: 20px;
+  margin-bottom: 20px;
   padding-left: 60px;
   position: relative;
   z-index: 1;
@@ -113,4 +113,12 @@
       margin-top: 100px;
     }
   }
+}
+
+.actionsContainer {
+  padding: 20px;
+}
+
+.headerActions {
+  display: flex;
 }

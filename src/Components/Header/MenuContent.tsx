@@ -4,8 +4,12 @@ import { Typography } from "@mui/material";
 import MenuContentTitles from "./MenuContentTitles";
 import { useState } from "react";
 import UnderlineWrapper from "../utils/UnderlineWrapper";
+import MaskTextWrapper from "../utils/MaskTextWrapper";
+import { opacity } from "../Preloader/animation";
 
-interface MenuContentProps {}
+interface MenuContentProps {
+  isActive: boolean;
+}
 
 const links = [
   {
@@ -14,7 +18,7 @@ const links = [
   },
   {
     title: "Introduction",
-    href: "/",
+    href: "/about-me",
   },
   {
     title: "Resume",
@@ -41,6 +45,30 @@ const footerLinks = [
     href: "mailto:atnathalang@gmail.com",
   },
 ];
+
+const footerLinksVariants = {
+  initial: {
+    transform: "translateY(100%)",
+    opacity: 0,
+    transition: {
+      duration: 0.5,
+    },
+  },
+
+  enter: {
+    transform: "translateY(0%)",
+    opacity: 1,
+    transition: {
+      duration: 0.3,
+      delay: 0.6,
+    },
+  },
+
+  exit: {
+    opacity: 0,
+    transition: { duration: 0.5, type: "linear", ease: [0.76, 0, 0.24, 1] },
+  },
+};
 
 const bodyVariant = {
   initial: {
@@ -69,7 +97,7 @@ const bodyVariant = {
   },
 };
 
-const MenuContent = (_props: MenuContentProps) => {
+const MenuContent = ({ isActive }: MenuContentProps) => {
   const [hovered, setHovered] = useState({ isActive: false, index: 0 });
 
   return (
@@ -97,7 +125,12 @@ const MenuContent = (_props: MenuContentProps) => {
 
         <div className={classes.menuContentFooter}>
           {footerLinks.map(({ href, name }, index) => (
-            <div>
+            <motion.div
+              variants={footerLinksVariants}
+              initial="initial"
+              animate="enter"
+              exit="exit"
+            >
               <UnderlineWrapper>
                 <Typography
                   key={index}
@@ -109,7 +142,7 @@ const MenuContent = (_props: MenuContentProps) => {
                   {name}
                 </Typography>
               </UnderlineWrapper>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

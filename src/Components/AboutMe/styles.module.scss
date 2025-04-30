@@ -1,0 +1,14 @@
+.aboutMeContainer {
+  height: 100vh;
+  overflow: hidden;
+  background-color: var(--color-text);
+  color: var(--color-main);
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 80px 80px;
+}
+
+.detailed {
+  //   flex: 1;
+}

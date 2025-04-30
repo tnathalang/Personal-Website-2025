@@ -14,6 +14,25 @@ interface ToolsCardprops extends MouseActions {
 
 const labels = ["React", "Typescript", "Ruby on rails", "GraphQL", "Apollo"];
 
+const footerLinksVariants = {
+  initial: {
+    transform: "translateY(100%)",
+    opacity: 0,
+    transition: {
+      duration: 0.5,
+    },
+  },
+
+  enter: {
+    transform: "translateY(0%)",
+    opacity: 1,
+    transition: {
+      duration: 1,
+      delay: 0.6,
+    },
+  },
+};
+
 const ToolsCard = ({
   preloaderFinished,
   onMouseEnter,

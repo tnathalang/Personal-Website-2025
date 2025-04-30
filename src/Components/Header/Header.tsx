@@ -26,14 +26,23 @@ export const Header = ({ onMouseEnter, onMouseLeave }: HeaderProps) => {
           </Link>
         </UnderlineWrapper>
       </div>
-      <MenuButton
+      <div className={classes.actionsContainer}>
+        <div className={classes.headerActions}>
+          <Typography>About me</Typography>
+          <Typography>Resume</Typography>
+          <Typography>Home</Typography>
+        </div>
+      </div>
+      {/* <MenuButton
         isActive={isActive}
         setIsActive={setIsActive}
         onMouseEnter={onMouseEnter}
         onMouseLeave={onMouseLeave}
       >
-        <AnimatePresence>{isActive && <MenuContent />}</AnimatePresence>
-      </MenuButton>
+        <AnimatePresence>
+          {isActive && <MenuContent isActive={isActive} />}
+        </AnimatePresence>
+      </MenuButton> */}
     </div>
   );
 };

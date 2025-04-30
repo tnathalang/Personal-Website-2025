@@ -4,7 +4,7 @@ import { getWordRevealVariants } from "./animation";
 
 interface MaskTextWrapperProps {
   children: ReactNode;
-  preloaderFinished: boolean;
+  preloaderFinished?: boolean;
   isInView?: boolean;
   index?: number;
 }

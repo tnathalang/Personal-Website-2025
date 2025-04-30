@@ -7,6 +7,24 @@ interface HoverFlipTextprops {
   label: string;
 }
 
+const hoverFlipContainerVariants = {
+  initial: {
+    transform: "translateY(100%)",
+    opacity: 0,
+    transition: {
+      duration: 0.5,
+    },
+  },
+  enter: {
+    transform: "translateY(0%)",
+    opacity: 1,
+    transition: {
+      duration: 1,
+      delay: 0.6,
+    },
+  },
+};
+
 const HoverFlipText = ({ label }: HoverFlipTextprops) => {
   const theme = useTheme();
 
@@ -18,11 +36,9 @@ const HoverFlipText = ({ label }: HoverFlipTextprops) => {
         overflow: "hidden",
       }}
       initial="initial"
+      animate="enter"
       whileHover="hovered"
-      variants={{
-        initial: {},
-        hovered: {},
-      }}
+      variants={hoverFlipContainerVariants}
     >
       <motion.div
         variants={{
